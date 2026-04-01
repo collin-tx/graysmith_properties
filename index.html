@@ -329,55 +329,54 @@
       color: var(--espresso);
     }
 
-    /* ── MOVE UP METHOD SECTION ── */
-    .method-section { background: var(--linen); }
+    .right-place-card p {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      line-height: 1.6;
+      margin-top: 0.4rem;
+    }
 
-    .method-layout {
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--linen); }
+
+    .testimonials-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 2rem;
-    }
-
-    .method-visual {
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
+      margin-top: 2.5rem;
     }
 
-    .method-step {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      padding: 1.5rem;
+    .testimonial-card {
       background: var(--white);
       border-radius: 6px;
-      transition: transform 0.3s;
+      padding: 2.5rem 2rem;
     }
 
-    .method-step:hover { transform: translateX(6px); }
-
-    .method-step-num {
+    .testimonial-quote {
       font-family: var(--heading);
-      font-size: 1.75rem;
+      font-size: 1.1rem;
       font-weight: 400;
-      color: var(--terracotta);
-      line-height: 1;
-      min-width: 2rem;
-    }
-
-    .method-step-content h4 {
-      font-family: var(--heading);
-      font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 0.35rem;
-    }
-
-    .method-step-content p {
-      font-size: 0.9rem;
-      opacity: 0.7;
+      font-style: italic;
       line-height: 1.6;
+      color: var(--espresso);
+      margin-bottom: 1.25rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--espresso);
+      opacity: 0.5;
+    }
+
+    .testimonial-dash {
+      display: block;
+      width: 1.25rem;
+      height: 1.5px;
+      background: var(--terracotta);
     }
 
     /* ── CREDIBILITY ── */
@@ -392,9 +391,8 @@
     .cred-stats {
       display: flex;
       gap: 3rem;
-      margin-top: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid rgba(245, 239, 230, 0.12);
+      margin-top: 2rem;
+      padding-bottom: 0.5rem;
     }
 
     .cred-stat {
@@ -610,9 +608,8 @@
         grid-template-columns: 1fr;
       }
 
-      .method-layout {
+      .testimonials-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
       }
 
       .cred-stats {
@@ -682,10 +679,10 @@
   <div class="hero-inner">
     <div class="hero-eyebrow fade-up">The Move Up Method</div>
     <h1 class="fade-up stagger-1">What if your home was doing more than just <em>housing you?</em></h1>
-    <p class="hero-sub fade-up stagger-2">Most Dallas millennials are sitting on more equity than they realize and have no idea what to do with it. That's exactly what we're here for.</p>
+    <p class="hero-sub fade-up stagger-2">Dallas real estate advice for millennials who are ready to stop guessing and start building wealth, one smart move at a time.</p>
     <div class="hero-ctas fade-up stagger-3">
       <a href="#join" class="btn-primary">
-        Get the free Move Up Method guide
+        Get the free guide
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="/move-up-method" class="btn-secondary">See how it works</a>
@@ -700,53 +697,16 @@
     <h2 class="section-heading fade-up stagger-1">You're in the right place if...</h2>
     <div class="right-place-grid">
       <div class="right-place-card fade-up stagger-1">
-        <h3>You've outgrown your starter home but you're not sure if the math works to move up yet.</h3>
+        <h3>You've outgrown your starter home</h3>
+        <p>And you want to move up without starting from scratch.</p>
       </div>
       <div class="right-place-card fade-up stagger-2">
-        <h3>You want real estate to build wealth, not just a roof. An actual long-term financial strategy.</h3>
+        <h3>You want real estate to work for you</h3>
+        <p>Not just a place to live. An actual wealth strategy.</p>
       </div>
       <div class="right-place-card fade-up stagger-3">
-        <h3>You want straight talk: no hype, no pressure, no "this STUNNING home won't last."</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════ MOVE UP METHOD ════════════════ -->
-<section class="method-section">
-  <div class="section-inner">
-    <div class="method-layout">
-      <div>
-        <div class="eyebrow fade-up">The Framework</div>
-        <h2 class="section-heading fade-up stagger-1">There's a smarter way to move up.</h2>
-        <p class="section-body fade-up stagger-2">Most people approach a move-up purchase the same way they did their first home: find something they like, figure out the money later, and hope it works out. The Move Up Method flips that. We start with your equity, your goals, and your timeline then build the move around those.</p>
-        <a href="/move-up-method" class="btn-secondary fade-up stagger-3" style="margin-top: 2rem;">
-          See the full method
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-      <div class="method-visual">
-        <div class="method-step fade-up stagger-1">
-          <span class="method-step-num">01</span>
-          <div class="method-step-content">
-            <h4>Know Your Equity</h4>
-            <p>Find out what your home is actually worth to you: your equity is your launchpad.</p>
-          </div>
-        </div>
-        <div class="method-step fade-up stagger-2">
-          <span class="method-step-num">02</span>
-          <div class="method-step-content">
-            <h4>Use It As Leverage</h4>
-            <p>Turn what you have into what you want next. Strategically, not randomly.</p>
-          </div>
-        </div>
-        <div class="method-step fade-up stagger-3">
-          <span class="method-step-num">03</span>
-          <div class="method-step-content">
-            <h4>Repeat the Climb</h4>
-            <p>Each move sets up the next one. Real estate becomes a wealth-building tool.</p>
-          </div>
-        </div>
+        <h3>You want straight talk</h3>
+        <p>An advisor who tells you the truth even when it's inconvenient.</p>
       </div>
     </div>
   </div>
@@ -756,26 +716,50 @@
 <section class="credibility">
   <div class="section-inner">
     <div class="eyebrow fade-up">Meet Rachael</div>
-    <h2 class="section-heading fade-up stagger-1" style="max-width: 600px;">I've done every version of this.</h2>
-    <p class="section-body fade-up stagger-2">11 years in real estate. A DIY flip I lived through (literally). A duplex I house-hacked and still own as a rental. A wholesale deal flipped with a GC. And right now, a home in Lake Highlands I chose for the schools with a move-up already penciled in for a few years from now. I don't just advise on this stuff. I do it.</p>
-    <div class="cred-stats fade-up stagger-3">
+    <h2 class="section-heading fade-up stagger-1" style="max-width: 600px;">I don't just advise on this stuff. I do it.</h2>
+    <div class="cred-stats fade-up stagger-2">
       <div class="cred-stat">
         <span class="cred-stat-num">11</span>
         <span class="cred-stat-label">Years in Dallas<br>real estate</span>
       </div>
       <div class="cred-stat">
         <span class="cred-stat-num">3</span>
-        <span class="cred-stat-label">Personal investment<br>strategies lived</span>
+        <span class="cred-stat-label">Investment strategies<br>done personally</span>
       </div>
       <div class="cred-stat">
         <span class="cred-stat-num">1</span>
         <span class="cred-stat-label">Method built<br>from all of it</span>
       </div>
     </div>
-    <a href="/about" class="btn-secondary fade-up stagger-4">
+    <p class="section-body fade-up stagger-3" style="margin-top: 2.5rem;">11 years in real estate. A DIY flip I lived through (literally). A duplex I house-hacked and still own as a rental. A wholesale deal flipped with a GC. And right now, a home in Lake Highlands I chose for the schools with a move-up already penciled in for a few years from now. I don't just advise on this stuff. I do it.</p>
+    <a href="/about" class="btn-secondary fade-up stagger-4" style="margin-top: 2rem;">
       More about Rachael
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
+  </div>
+</section>
+
+<!-- ════════════════ TESTIMONIALS ════════════════ -->
+<section class="testimonials">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">What clients say</div>
+    <h2 class="section-heading fade-up stagger-1">Don't take my word for it.</h2>
+    <div class="testimonials-grid fade-up stagger-2">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">Testimonial coming soon.</p>
+        <div class="testimonial-author">
+          <span class="testimonial-dash"></span>
+          <span>Client Name</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">Testimonial coming soon.</p>
+        <div class="testimonial-author">
+          <span class="testimonial-dash"></span>
+          <span>Client Name</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -783,13 +767,13 @@
 <section class="email-cta" id="join">
   <div class="section-inner">
     <div class="eyebrow fade-up">Stay in the loop</div>
-    <h2 class="section-heading fade-up stagger-1">Not ready to move yet?<br>That's fine. Stay sharp.</h2>
-    <p class="section-body fade-up stagger-2">Join the list and get the Move Up Method guide free, plus real talk about Dallas real estate, market updates, and wealth-building strategies delivered to your inbox.</p>
+    <h2 class="section-heading fade-up stagger-1">Not ready to move yet?<br>Stay in the loop.</h2>
+    <p class="section-body fade-up stagger-2">Get the free Move Up Method guide plus real talk about Dallas real estate delivered to your inbox. No spam. No hype. Just the stuff that actually helps.</p>
     <form class="email-form fade-up stagger-3" onsubmit="event.preventDefault()">
       <input type="email" placeholder="Your email address" required>
       <button type="submit">Send me the guide</button>
     </form>
-    <p class="email-fine fade-up stagger-4">No spam. No hype. Just the stuff that actually helps.</p>
+    <p class="email-fine fade-up stagger-4">No spam. Unsubscribe anytime.</p>
   </div>
 </section>
 
