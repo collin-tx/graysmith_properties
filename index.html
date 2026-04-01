@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graysmith Properties | Helping Dallas Millennials Build Real Estate Wealth</title>
+  <meta name="description" content="Graysmith Properties helps Dallas millennials build wealth through smart real estate moves. Learn the Move Up Method from advisor Rachael Gray Smith.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C4603A;
+      --avocado: #4A6741;
+      --espresso: #2C2825;
+      --linen: #F5EFE6;
+      --gold: #D4A96A;
+      --white: #FFFFFF;
+      --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      color: var(--espresso);
+      background: var(--linen);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── EYEBROW LABELS ── */
+    .eyebrow {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-bottom: 1rem;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--espresso);
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { height: 42px; width: 42px; }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      line-height: 1;
+    }
+
+    .nav-logo-name {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--body);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: var(--terracotta) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      opacity: 1 !important;
+      font-weight: 500 !important;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover { background: #b35530 !important; }
+
+    /* ── MOBILE NAV ── */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--linen);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--linen);
+      padding: 120px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--terracotta) 100%);
+      opacity: 0.07;
+      clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--avocado);
+    }
+
+    .hero h1 {
+      font-family: var(--heading);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--espresso);
+      max-width: 720px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      color: var(--espresso);
+      opacity: 0.75;
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--terracotta);
+      color: var(--white);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: #b35530; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--espresso);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.9rem 2rem;
+      border: 1.5px solid var(--espresso);
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--espresso);
+      color: var(--linen);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 2rem; }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      font-family: var(--heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--espresso);
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1.05rem;
+      max-width: 640px;
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    /* ── RIGHT PLACE SECTION ── */
+    .right-place { background: var(--white); }
+
+    .right-place-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .right-place-card {
+      background: var(--linen);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .right-place-card:hover { transform: translateY(-4px); }
+
+    .right-place-card::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 3px;
+      background: var(--terracotta);
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+    }
+
+    .right-place-card h3 {
+      font-family: var(--heading);
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--espresso);
+    }
+
+    /* ── MOVE UP METHOD SECTION ── */
+    .method-section { background: var(--linen); }
+
+    .method-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .method-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .method-step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 6px;
+      transition: transform 0.3s;
+    }
+
+    .method-step:hover { transform: translateX(6px); }
+
+    .method-step-num {
+      font-family: var(--heading);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--terracotta);
+      line-height: 1;
+      min-width: 2rem;
+    }
+
+    .method-step-content h4 {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    .method-step-content p {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+
+    /* ── CREDIBILITY ── */
+    .credibility { background: var(--espresso); color: var(--linen); }
+
+    .credibility .eyebrow { color: var(--gold); }
+
+    .credibility .section-heading { color: var(--linen); }
+
+    .credibility .section-body { color: var(--linen); opacity: 0.75; }
+
+    .cred-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(245, 239, 230, 0.12);
+    }
+
+    .cred-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cred-stat-num {
+      font-family: var(--heading);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--terracotta);
+      line-height: 1;
+    }
+
+    .cred-stat-label {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .credibility .btn-secondary {
+      color: var(--linen);
+      border-color: rgba(245, 239, 230, 0.3);
+      margin-top: 2.5rem;
+    }
+
+    .credibility .btn-secondary:hover {
+      background: var(--linen);
+      color: var(--espresso);
+    }
+
+    /* ── EMAIL CTA ── */
+    .email-cta {
+      background: var(--terracotta);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 2rem;
+    }
+
+    .email-cta .eyebrow { color: rgba(255,255,255,0.6); }
+
+    .email-cta .section-heading {
+      color: var(--white);
+      max-width: 600px;
+      margin: 0 auto 0.75rem;
+    }
+
+    .email-cta .section-body {
+      color: var(--white);
+      opacity: 0.85;
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .email-form input {
+      flex: 1;
+      padding: 0.9rem 1.25rem;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--body);
+      font-size: 0.95rem;
+      background: var(--white);
+      color: var(--espresso);
+      outline: none;
+    }
+
+    .email-form input::placeholder { color: var(--espresso); opacity: 0.4; }
+
+    .email-form button {
+      background: var(--espresso);
+      color: var(--linen);
+      font-family: var(--body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.9rem 1.75rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.25s;
+    }
+
+    .email-form button:hover { background: #1a1816; }
+
+    .email-fine {
+      font-size: 0.8rem;
+      opacity: 0.55;
+      margin-top: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--espresso);
+      color: var(--linen);
+      padding: 60px 2rem 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      opacity: 0.55;
+      line-height: 1.7;
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col li { margin-bottom: 0.65rem; }
+
+    .footer-col a {
+      color: var(--linen);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(245, 239, 230, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      opacity: 0.35;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .footer-eho {
+      font-size: 0.7rem;
+      opacity: 0.35;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--espresso);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 2px solid var(--terracotta);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      }
+
+      .right-place-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .method-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .cred-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .email-form {
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 64px 1.25rem; }
+
+      .hero { padding: 100px 1.25rem 60px; }
+
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas a { text-align: center; }
+
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-name">Graysmith</span>
+      <span class="nav-logo-sub">Properties</span>
+    </span>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/move-up-method">Move Up Method</a></li>
+    <li><a href="/education">Education</a></li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/investors">Investors</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="#join" class="nav-cta">Join the list</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow fade-up">The Move Up Method</div>
+    <h1 class="fade-up stagger-1">What if your home was doing more than just <em>housing you?</em></h1>
+    <p class="hero-sub fade-up stagger-2">Most Dallas millennials are sitting on more equity than they realize and have no idea what to do with it. That's exactly what we're here for.</p>
+    <div class="hero-ctas fade-up stagger-3">
+      <a href="#join" class="btn-primary">
+        Get the free Move Up Method guide
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/move-up-method" class="btn-secondary">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ RIGHT PLACE ════════════════ -->
+<section class="right-place">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Who this is for</div>
+    <h2 class="section-heading fade-up stagger-1">You're in the right place if...</h2>
+    <div class="right-place-grid">
+      <div class="right-place-card fade-up stagger-1">
+        <h3>You've outgrown your starter home but you're not sure if the math works to move up yet.</h3>
+      </div>
+      <div class="right-place-card fade-up stagger-2">
+        <h3>You want real estate to build wealth, not just a roof. An actual long-term financial strategy.</h3>
+      </div>
+      <div class="right-place-card fade-up stagger-3">
+        <h3>You want straight talk: no hype, no pressure, no "this STUNNING home won't last."</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ MOVE UP METHOD ════════════════ -->
+<section class="method-section">
+  <div class="section-inner">
+    <div class="method-layout">
+      <div>
+        <div class="eyebrow fade-up">The Framework</div>
+        <h2 class="section-heading fade-up stagger-1">There's a smarter way to move up.</h2>
+        <p class="section-body fade-up stagger-2">Most people approach a move-up purchase the same way they did their first home: find something they like, figure out the money later, and hope it works out. The Move Up Method flips that. We start with your equity, your goals, and your timeline then build the move around those.</p>
+        <a href="/move-up-method" class="btn-secondary fade-up stagger-3" style="margin-top: 2rem;">
+          See the full method
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="method-visual">
+        <div class="method-step fade-up stagger-1">
+          <span class="method-step-num">01</span>
+          <div class="method-step-content">
+            <h4>Know Your Equity</h4>
+            <p>Find out what your home is actually worth to you: your equity is your launchpad.</p>
+          </div>
+        </div>
+        <div class="method-step fade-up stagger-2">
+          <span class="method-step-num">02</span>
+          <div class="method-step-content">
+            <h4>Use It As Leverage</h4>
+            <p>Turn what you have into what you want next. Strategically, not randomly.</p>
+          </div>
+        </div>
+        <div class="method-step fade-up stagger-3">
+          <span class="method-step-num">03</span>
+          <div class="method-step-content">
+            <h4>Repeat the Climb</h4>
+            <p>Each move sets up the next one. Real estate becomes a wealth-building tool.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CREDIBILITY ════════════════ -->
+<section class="credibility">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Meet Rachael</div>
+    <h2 class="section-heading fade-up stagger-1" style="max-width: 600px;">I've done every version of this.</h2>
+    <p class="section-body fade-up stagger-2">11 years in real estate. A DIY flip I lived through (literally). A duplex I house-hacked and still own as a rental. A wholesale deal flipped with a GC. And right now, a home in Lake Highlands I chose for the schools with a move-up already penciled in for a few years from now. I don't just advise on this stuff. I do it.</p>
+    <div class="cred-stats fade-up stagger-3">
+      <div class="cred-stat">
+        <span class="cred-stat-num">11</span>
+        <span class="cred-stat-label">Years in Dallas<br>real estate</span>
+      </div>
+      <div class="cred-stat">
+        <span class="cred-stat-num">3</span>
+        <span class="cred-stat-label">Personal investment<br>strategies lived</span>
+      </div>
+      <div class="cred-stat">
+        <span class="cred-stat-num">1</span>
+        <span class="cred-stat-label">Method built<br>from all of it</span>
+      </div>
+    </div>
+    <a href="/about" class="btn-secondary fade-up stagger-4">
+      More about Rachael
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════ EMAIL CTA ════════════════ -->
+<section class="email-cta" id="join">
+  <div class="section-inner">
+    <div class="eyebrow fade-up">Stay in the loop</div>
+    <h2 class="section-heading fade-up stagger-1">Not ready to move yet?<br>That's fine. Stay sharp.</h2>
+    <p class="section-body fade-up stagger-2">Join the list and get the Move Up Method guide free, plus real talk about Dallas real estate, market updates, and wealth-building strategies delivered to your inbox.</p>
+    <form class="email-form fade-up stagger-3" onsubmit="event.preventDefault()">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Send me the guide</button>
+    </form>
+    <p class="email-fine fade-up stagger-4">No spam. No hype. Just the stuff that actually helps.</p>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
+          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+        </svg>
+      </a>
+      <p>Helping Dallas millennials build real estate wealth: one move up at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/move-up-method">Move Up Method</a></li>
+        <li><a href="/investors">Investors</a></li>
+        <li><a href="/education">Education</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/resources">Free Guides</a></li>
+        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2025 Graysmith Properties
+    </div>
+    <div class="footer-eho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+      Equal Housing
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ SCROLL ANIMATIONS ════════════════ -->
+<script>
+  // Mobile nav toggle - click anywhere to close
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

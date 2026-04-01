@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Hub | Graysmith Properties</title>
+  <meta name="description" content="Real talk about Dallas real estate. Honest, useful content about move-up buying, building wealth through real estate, and navigating the Dallas market.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C4603A;
+      --avocado: #4A6741;
+      --espresso: #2C2825;
+      --linen: #F5EFE6;
+      --gold: #D4A96A;
+      --white: #FFFFFF;
+      --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      color: var(--espresso);
+      background: var(--linen);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .eyebrow {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--espresso);
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { height: 42px; width: 42px; }
+
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-logo-name {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--body);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: var(--terracotta) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      opacity: 1 !important;
+      font-weight: 500 !important;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover { background: #b35530 !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--linen);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--terracotta);
+      color: var(--white);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: #b35530; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--espresso);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.9rem 2rem;
+      border: 1.5px solid var(--espresso);
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--espresso);
+      color: var(--linen);
+    }
+
+    .btn-arrow { width: 16px; height: 16px; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 160px 2rem 80px;
+      background: var(--linen);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--avocado) 0%, transparent 70%);
+      opacity: 0.04;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .eyebrow { color: var(--avocado); }
+
+    .hero h1 {
+      font-family: var(--heading);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--espresso);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      opacity: 0.7;
+      line-height: 1.8;
+      max-width: 580px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: gap 0.25s;
+    }
+
+    .hero-cta-link:hover { gap: 0.7rem; }
+
+    /* ── TOPIC PILLS ── */
+    .topics {
+      padding: 0 2rem 60px;
+      background: var(--linen);
+    }
+
+    .topics-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .topic-pill {
+      font-family: var(--body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.55rem 1.25rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--espresso);
+      background: transparent;
+      color: var(--espresso);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .topic-pill:hover,
+    .topic-pill.active {
+      background: var(--espresso);
+      color: var(--linen);
+    }
+
+    .topic-pill.active {
+      border-color: var(--espresso);
+    }
+
+    /* ── ARTICLES GRID ── */
+    .articles {
+      padding: 0 2rem 100px;
+      background: var(--linen);
+    }
+
+    .articles-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .article-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--espresso);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(44, 40, 37, 0.08);
+    }
+
+    .article-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .article-thumb.t1 {
+      background: linear-gradient(135deg, #ece4d8 0%, #ddd4c6 100%);
+    }
+
+    .article-thumb.t2 {
+      background: linear-gradient(135deg, var(--espresso) 0%, #3d3633 100%);
+    }
+
+    .article-thumb.t3 {
+      background: linear-gradient(135deg, var(--avocado) 0%, #3a5434 100%);
+    }
+
+    .article-thumb.t4 {
+      background: linear-gradient(135deg, var(--terracotta) 0%, #a84f2d 100%);
+    }
+
+    .article-thumb svg { opacity: 0.12; }
+
+    .article-content {
+      padding: 1.75rem 2rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-topic {
+      font-family: var(--body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-bottom: 0.75rem;
+    }
+
+    .article-title {
+      font-family: var(--heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--espresso);
+      margin-bottom: 0.75rem;
+    }
+
+    .article-excerpt {
+      font-size: 0.9rem;
+      opacity: 0.65;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .article-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      margin-top: 1.25rem;
+      transition: gap 0.25s;
+    }
+
+    .article-card:hover .article-read { gap: 0.6rem; }
+
+    /* ── COMING SOON NOTE ── */
+    .more-coming {
+      text-align: center;
+      padding: 2.5rem 2rem 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .more-coming p {
+      font-size: 0.95rem;
+      opacity: 0.5;
+      font-style: italic;
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      background: var(--avocado);
+      color: var(--linen);
+      padding: 80px 2rem;
+      text-align: center;
+    }
+
+    .bottom-cta-inner {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .bottom-cta .eyebrow { color: var(--gold); }
+
+    .bottom-cta h2 {
+      font-family: var(--heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--linen);
+      margin-bottom: 1.25rem;
+    }
+
+    .bottom-cta p {
+      font-size: 1.05rem;
+      opacity: 0.75;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .bottom-cta .btn-primary {
+      background: var(--white);
+      color: var(--avocado);
+    }
+
+    .bottom-cta .btn-primary:hover {
+      background: var(--linen);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--espresso);
+      color: var(--linen);
+      padding: 60px 2rem 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      opacity: 0.55;
+      line-height: 1.7;
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.65rem; }
+
+    .footer-col a {
+      color: var(--linen);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(245, 239, 230, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      opacity: 0.35;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .footer-eho {
+      font-size: 0.7rem;
+      opacity: 0.35;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--espresso);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 2px solid var(--terracotta);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 130px 1.25rem 60px; }
+      .topics { padding: 0 1.25rem 40px; }
+      .articles { padding: 0 1.25rem 64px; }
+      .bottom-cta { padding: 64px 1.25rem; }
+
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-name">Graysmith</span>
+      <span class="nav-logo-sub">Properties</span>
+    </span>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/move-up-method">Move Up Method</a></li>
+    <li><a href="/education">Education</a></li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/investors">Investors</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/#join" class="nav-cta">Join the list</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow fade-up">The Education Hub</div>
+    <h1 class="fade-up stagger-1">Real talk about <em>Dallas real estate.</em></h1>
+    <p class="hero-sub fade-up stagger-2">No hype, no filler, no "now is always a great time to buy." Just honest, useful content about move-up buying, building wealth through real estate, and navigating the Dallas market, written by someone who's done all of it.</p>
+    <a href="#subscribe" class="hero-cta-link fade-up stagger-3">
+      Subscribe on Substack
+      <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════ TOPIC PILLS ════════════════ -->
+<section class="topics">
+  <div class="topics-inner fade-up">
+    <button class="topic-pill active">All</button>
+    <button class="topic-pill" data-topic="move-up">Move-up buying</button>
+    <button class="topic-pill" data-topic="selling">Selling smart</button>
+    <button class="topic-pill" data-topic="wealth">Building wealth</button>
+    <button class="topic-pill" data-topic="market">Dallas market</button>
+    <button class="topic-pill" data-topic="equity">Equity explained</button>
+    <button class="topic-pill" data-topic="investing">Investing 101</button>
+  </div>
+</section>
+
+<!-- ════════════════ ARTICLES GRID ════════════════ -->
+<section class="articles">
+  <div class="articles-inner">
+    <div class="articles-grid">
+
+      <!-- Article 1 -->
+      <a href="#" class="article-card fade-up" data-topics="equity move-up">
+        <div class="article-thumb t1">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <rect x="10" y="22" width="40" height="28" rx="3" stroke="#2C2825" stroke-width="1.5"/>
+            <path d="M18 22V16a12 12 0 0124 0v6" stroke="#2C2825" stroke-width="1.5"/>
+            <circle cx="30" cy="38" r="5" stroke="#C4603A" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">Equity Explained</div>
+          <h3 class="article-title">What is home equity, actually? And why should you care?</h3>
+          <p class="article-excerpt">Most Dallas homeowners have built up more equity than they realize. Here's what it means, how to find yours, and what you can do with it.</p>
+          <span class="article-read">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="#" class="article-card fade-up stagger-1" data-topics="market">
+        <div class="article-thumb t2">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M10 45l12-15 10 8 18-23" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="50" cy="15" r="3" fill="#C4603A"/>
+            <path d="M8 48h46" stroke="#F5EFE6" stroke-width="1" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">Dallas Market</div>
+          <h3 class="article-title">Honest take: the Dallas market right now and what it means for your move</h3>
+          <p class="article-excerpt">Rates are complicated, inventory is shifting, and everyone has an opinion. Here's what's actually happening and what it means if you're thinking about moving up.</p>
+          <span class="article-read">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="#" class="article-card fade-up stagger-2" data-topics="move-up selling">
+        <div class="article-thumb t3">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 45h8v-12h-8zM27 45h8v-20h-8zM39 45h8v-28h-8z" stroke="#F5EFE6" stroke-width="1.5"/>
+            <path d="M18 25l13-10 13 8" stroke="#C4603A" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">Move-Up Buying</div>
+          <h3 class="article-title">How to sell and buy at the same time without panicking</h3>
+          <p class="article-excerpt">The logistics of a simultaneous sale and purchase are the number one thing people stress about. Here's how to plan it so you're not caught in the gap.</p>
+          <span class="article-read">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Article 4 -->
+      <a href="#" class="article-card fade-up stagger-3" data-topics="wealth investing">
+        <div class="article-thumb t4">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M30 12v36M18 24l12-12 12 12" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 36h16" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+            <path d="M18 42h24" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">Building Wealth</div>
+          <h3 class="article-title">Your primary home was just the beginning. Now what?</h3>
+          <p class="article-excerpt">You bought your first place. Nice. But if you're thinking about real estate as a wealth-building tool, here's how to start looking at your next moves.</p>
+          <span class="article-read">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="more-coming fade-up">
+      <p>More articles coming soon. Subscribe on Substack to get them first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ BOTTOM CTA ════════════════ -->
+<section class="bottom-cta" id="subscribe">
+  <div class="bottom-cta-inner">
+    <div class="eyebrow fade-up">Never miss a post</div>
+    <h2 class="fade-up stagger-1">Want this in your inbox?</h2>
+    <p class="fade-up stagger-2">Subscribe on Substack and get new articles delivered straight to you, plus real talk about the Dallas market, move-up strategy, and wealth-building through real estate.</p>
+    <a href="#" class="btn-primary fade-up stagger-3">
+      Subscribe on Substack
+      <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
+          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+        </svg>
+      </a>
+      <p>Helping Dallas millennials build real estate wealth: one move up at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/move-up-method">Move Up Method</a></li>
+        <li><a href="/investors">Investors</a></li>
+        <li><a href="/education">Education</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/resources">Free Guides</a></li>
+        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2025 Graysmith Properties
+    </div>
+    <div class="footer-eho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+      Equal Housing
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+  // Mobile nav
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
+  });
+
+  // Topic filter pills
+  const pills = document.querySelectorAll('.topic-pill');
+  const cards = document.querySelectorAll('.article-card');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const topic = pill.dataset.topic;
+
+      cards.forEach(card => {
+        if (!topic) {
+          card.style.display = '';
+        } else {
+          const cardTopics = card.dataset.topics || '';
+          card.style.display = cardTopics.includes(topic) ? '' : 'none';
+        }
+      });
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

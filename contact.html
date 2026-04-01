@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Graysmith Properties</title>
+  <meta name="description" content="Reach out to Rachael Gray Smith at Graysmith Properties. Book a free 20-minute strategy call or send a message. No pressure, no pitch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C4603A;
+      --avocado: #4A6741;
+      --espresso: #2C2825;
+      --linen: #F5EFE6;
+      --gold: #D4A96A;
+      --white: #FFFFFF;
+      --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      color: var(--espresso);
+      background: var(--linen);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .eyebrow {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--espresso);
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { height: 42px; width: 42px; }
+
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-logo-name {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--body);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: var(--terracotta) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      opacity: 1 !important;
+      font-weight: 500 !important;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover { background: #b35530 !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--linen);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 160px 2rem 80px;
+      background: var(--linen);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--terracotta) 0%, transparent 70%);
+      opacity: 0.04;
+    }
+
+    .hero-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .eyebrow { color: var(--avocado); }
+
+    .hero h1 {
+      font-family: var(--heading);
+      font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--espresso);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      opacity: 0.7;
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── CONTACT OPTIONS ── */
+    .contact-options {
+      padding: 0 2rem 40px;
+      background: var(--linen);
+    }
+
+    .options-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .option-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--espresso);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .option-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(44, 40, 37, 0.07);
+    }
+
+    .option-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-icon.cal { background: rgba(196, 96, 58, 0.1); }
+    .option-icon.ig { background: rgba(74, 103, 65, 0.1); }
+    .option-icon.mail { background: rgba(212, 169, 106, 0.15); }
+
+    .option-label {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .option-desc {
+      font-size: 0.85rem;
+      opacity: 0.55;
+      line-height: 1.55;
+    }
+
+    .option-link {
+      font-family: var(--body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.25rem;
+      transition: gap 0.25s;
+    }
+
+    .option-card:hover .option-link { gap: 0.55rem; }
+
+    /* ── CONTACT FORM SECTION ── */
+    .form-section {
+      padding: 60px 2rem 100px;
+      background: var(--linen);
+    }
+
+    .form-wrapper {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 3rem;
+    }
+
+    .form-wrapper .eyebrow { color: var(--avocado); }
+
+    .form-wrapper h2 {
+      font-family: var(--heading);
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--espresso);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-subtext {
+      font-size: 0.9rem;
+      opacity: 0.55;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-input {
+      padding: 0.9rem 1.25rem;
+      border: 1.5px solid #e0d9cf;
+      border-radius: 4px;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--espresso);
+      background: var(--linen);
+      outline: none;
+      transition: border-color 0.25s;
+    }
+
+    .form-input:focus {
+      border-color: var(--terracotta);
+    }
+
+    .form-input::placeholder {
+      color: var(--espresso);
+      opacity: 0.35;
+    }
+
+    textarea.form-input {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .form-submit {
+      background: var(--terracotta);
+      color: var(--white);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      margin-top: 0.25rem;
+    }
+
+    .form-submit:hover {
+      background: #b35530;
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--espresso);
+      color: var(--linen);
+      padding: 60px 2rem 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      opacity: 0.55;
+      line-height: 1.7;
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.65rem; }
+
+    .footer-col a {
+      color: var(--linen);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(245, 239, 230, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      opacity: 0.35;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .footer-eho {
+      font-size: 0.7rem;
+      opacity: 0.35;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--espresso);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 2px solid var(--terracotta);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      }
+
+      .options-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 130px 1.25rem 60px; }
+      .contact-options { padding: 0 1.25rem 30px; }
+      .form-section { padding: 40px 1.25rem 64px; }
+
+      .form-wrapper { padding: 2rem; }
+
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-name">Graysmith</span>
+      <span class="nav-logo-sub">Properties</span>
+    </span>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/move-up-method">Move Up Method</a></li>
+    <li><a href="/education">Education</a></li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/investors">Investors</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/#join" class="nav-cta">Join the list</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow fade-up">Get in touch</div>
+    <h1 class="fade-up stagger-1">Let's <em>talk.</em></h1>
+    <p class="hero-sub fade-up stagger-2">Whether you're ready to make a move or just starting to think about it, reach out. No pressure, no pitch. Just a real conversation about where you are and where you want to be.</p>
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT OPTIONS ════════════════ -->
+<section class="contact-options">
+  <div class="options-inner">
+
+    <a href="#" class="option-card fade-up">
+      <div class="option-icon cal">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="14" rx="2" stroke="#C4603A" stroke-width="1.5"/><path d="M3 9h16M7 3v4M15 3v4" stroke="#C4603A" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="option-label">Book a call</div>
+      <div class="option-desc">Free 20-minute strategy call. No commitment, just clarity.</div>
+      <span class="option-link">
+        Schedule now
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener" class="option-card fade-up stagger-1">
+      <div class="option-icon ig">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="4" stroke="#4A6741" stroke-width="1.5"/><circle cx="11" cy="11" r="4" stroke="#4A6741" stroke-width="1.5"/><circle cx="15.5" cy="6.5" r="1" fill="#4A6741"/></svg>
+      </div>
+      <div class="option-label">Instagram</div>
+      <div class="option-desc">DMs are open. @rachael.graysmith</div>
+      <span class="option-link">
+        Open Instagram
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <a href="mailto:rachael@graysmithproperties.com" class="option-card fade-up stagger-2">
+      <div class="option-icon mail">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="12" rx="2" stroke="#D4A96A" stroke-width="1.5"/><path d="M3 7l8 5 8-5" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="option-label">Email</div>
+      <div class="option-desc">rachael@graysmithproperties.com</div>
+      <span class="option-link">
+        Send email
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT FORM ════════════════ -->
+<section class="form-section">
+  <div class="form-wrapper fade-up">
+    <div class="eyebrow">Send a message</div>
+    <h2>Drop a line. I'll get back to you within one business day.</h2>
+    <p class="form-subtext">Use the form below or email me directly at rachael@graysmithproperties.com</p>
+    <form class="contact-form" onsubmit="event.preventDefault()">
+      <input type="text" class="form-input" placeholder="First name" required>
+      <input type="email" class="form-input" placeholder="Email address" required>
+      <textarea class="form-input" placeholder="I'm thinking about moving up and want to talk through the timing..."></textarea>
+      <button type="submit" class="form-submit">Send it</button>
+    </form>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
+          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+        </svg>
+      </a>
+      <p>Helping Dallas millennials build real estate wealth: one move up at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/move-up-method">Move Up Method</a></li>
+        <li><a href="/investors">Investors</a></li>
+        <li><a href="/education">Education</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/resources">Free Guides</a></li>
+        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2025 Graysmith Properties
+    </div>
+    <div class="footer-eho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+      Equal Housing
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+  // Mobile nav
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

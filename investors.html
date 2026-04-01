@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Investors | Graysmith Properties</title>
+  <meta name="description" content="Dallas real estate investing with an agent who thinks like an investor. Flips, house hacks, rentals, and buy-and-hold strategy from someone who's done it personally.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C4603A;
+      --avocado: #4A6741;
+      --espresso: #2C2825;
+      --linen: #F5EFE6;
+      --gold: #D4A96A;
+      --white: #FFFFFF;
+      --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      color: var(--espresso);
+      background: var(--espresso);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .eyebrow {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--espresso);
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { height: 42px; width: 42px; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-logo-name {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--body);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: var(--terracotta) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      opacity: 1 !important;
+      font-weight: 500 !important;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover { background: #b35530 !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--linen);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--terracotta);
+      color: var(--white);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: #b35530; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.9rem 2rem;
+      border: 1.5px solid rgba(245, 239, 230, 0.3);
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--linen);
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--linen);
+      color: var(--espresso);
+      border-color: var(--linen);
+    }
+
+    .btn-arrow { width: 16px; height: 16px; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 160px 2rem 100px;
+      background: var(--espresso);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--terracotta) 0%, transparent 70%);
+      opacity: 0.06;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .eyebrow { color: var(--gold); }
+
+    .hero h1 {
+      font-family: var(--heading);
+      font-size: clamp(2.25rem, 5vw, 3.25rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--linen);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--linen);
+      opacity: 0.65;
+      line-height: 1.85;
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ── CREDIBILITY STATEMENT ── */
+    .credibility {
+      padding: 100px 2rem;
+      background: var(--espresso);
+      position: relative;
+    }
+
+    .credibility::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 169, 106, 0.2), transparent);
+    }
+
+    .cred-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .credibility .eyebrow { color: var(--gold); }
+
+    .credibility h2 {
+      font-family: var(--heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--linen);
+      margin-bottom: 1.75rem;
+    }
+
+    .credibility .cred-body {
+      font-size: 1.05rem;
+      color: var(--linen);
+      opacity: 0.7;
+      line-height: 1.9;
+    }
+
+    /* ── FIVE REASONS ── */
+    .reasons {
+      padding: 100px 2rem;
+      background: #332f2c;
+    }
+
+    .reasons-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .reasons .eyebrow { color: var(--gold); }
+
+    .reasons h2 {
+      font-family: var(--heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--linen);
+      margin-bottom: 3.5rem;
+      max-width: 600px;
+    }
+
+    .reason {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      padding: 2.25rem 0;
+      border-top: 1px solid rgba(245, 239, 230, 0.07);
+      align-items: start;
+    }
+
+    .reason:last-child {
+      border-bottom: 1px solid rgba(245, 239, 230, 0.07);
+    }
+
+    .reason-num {
+      font-family: var(--heading);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--terracotta);
+      opacity: 0.4;
+      line-height: 1;
+    }
+
+    .reason h3 {
+      font-family: var(--heading);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--linen);
+      margin-bottom: 0.65rem;
+      line-height: 1.35;
+    }
+
+    .reason p {
+      font-size: 0.95rem;
+      color: var(--linen);
+      opacity: 0.6;
+      line-height: 1.8;
+    }
+
+    /* ── WHO THIS IS FOR ── */
+    .who-section {
+      padding: 100px 2rem;
+      background: var(--espresso);
+      position: relative;
+    }
+
+    .who-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 169, 106, 0.15), transparent);
+    }
+
+    .who-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .who-section .eyebrow { color: var(--gold); }
+
+    .who-section h2 {
+      font-family: var(--heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--linen);
+      margin-bottom: 3rem;
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .who-card {
+      background: rgba(245, 239, 230, 0.04);
+      border: 1px solid rgba(245, 239, 230, 0.06);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .who-card:hover {
+      border-color: rgba(196, 96, 58, 0.2);
+      background: rgba(245, 239, 230, 0.06);
+    }
+
+    .who-card:last-child {
+      grid-column: 1 / -1;
+    }
+
+    .who-card h3 {
+      font-family: var(--heading);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--linen);
+      margin-bottom: 0.65rem;
+      line-height: 1.35;
+    }
+
+    .who-card p {
+      font-size: 0.9rem;
+      color: var(--linen);
+      opacity: 0.55;
+      line-height: 1.75;
+    }
+
+    /* ── HONEST DISCLAIMER ── */
+    .disclaimer {
+      padding: 80px 2rem;
+      background: #332f2c;
+    }
+
+    .disclaimer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 3rem;
+      border-left: 3px solid var(--gold);
+    }
+
+    .disclaimer .eyebrow { color: var(--gold); }
+
+    .disclaimer h2 {
+      font-family: var(--heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--linen);
+      margin-bottom: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .disclaimer p {
+      font-size: 0.95rem;
+      color: var(--linen);
+      opacity: 0.6;
+      line-height: 1.85;
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      padding: 100px 2rem;
+      background: var(--espresso);
+      text-align: center;
+      position: relative;
+    }
+
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 169, 106, 0.2), transparent);
+    }
+
+    .bottom-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .bottom-cta .eyebrow { color: var(--gold); }
+
+    .bottom-cta h2 {
+      font-family: var(--heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--linen);
+      margin-bottom: 1.25rem;
+    }
+
+    .bottom-cta p {
+      font-size: 1.05rem;
+      color: var(--linen);
+      opacity: 0.6;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .bottom-cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #1a1816;
+      color: var(--linen);
+      padding: 60px 2rem 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      opacity: 0.55;
+      line-height: 1.7;
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.65rem; }
+
+    .footer-col a {
+      color: var(--linen);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(245, 239, 230, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      opacity: 0.35;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .footer-eho {
+      font-size: 0.7rem;
+      opacity: 0.35;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--espresso);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 2px solid var(--terracotta);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      }
+
+      .reason {
+        grid-template-columns: 50px 1fr;
+        gap: 1rem;
+      }
+
+      .who-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .who-card:last-child {
+        grid-column: auto;
+      }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 130px 1.25rem 70px; }
+      .credibility { padding: 64px 1.25rem; }
+      .reasons { padding: 64px 1.25rem; }
+      .who-section { padding: 64px 1.25rem; }
+      .disclaimer { padding: 48px 1.25rem; }
+      .bottom-cta { padding: 64px 1.25rem; }
+
+      .disclaimer-inner { padding: 2rem 1.75rem; }
+
+      .bottom-cta-buttons { flex-direction: column; }
+      .bottom-cta-buttons a { text-align: center; }
+
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-name">Graysmith</span>
+      <span class="nav-logo-sub">Properties</span>
+    </span>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/move-up-method">Move Up Method</a></li>
+    <li><a href="/education">Education</a></li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/investors">Investors</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/#join" class="nav-cta">Join the list</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow fade-up">For Investors</div>
+    <h1 class="fade-up stagger-1">You don't need an agent. You need someone who <em>thinks like an investor.</em></h1>
+    <p class="hero-sub fade-up stagger-2">Most real estate agents can help you buy a house. Very few understand cap rates, ARV, cash-on-cash returns, or how to evaluate a deal before you're emotionally attached to it. I do, because I've done it myself.</p>
+    <a href="/contact" class="btn-primary fade-up stagger-3">
+      Book a strategy call
+      <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════ CREDIBILITY STATEMENT ════════════════ -->
+<section class="credibility">
+  <div class="cred-inner">
+    <div class="eyebrow fade-up">Track record</div>
+    <h2 class="fade-up stagger-1">I'm not advising from the sidelines.</h2>
+    <p class="cred-body fade-up stagger-2">I've flipped a house while living in it, handled the demo, the decisions, and the chaos firsthand. I've house-hacked a duplex and still own it as a cash-flowing rental today. I've sourced a wholesale deal, managed the renovation with a GC, and sold it for a profit. And right now I'm in a primary home I bought with the next move already mapped out. That's not a pitch. That's just what I've done. Which means when you bring me a deal, I'm not Googling what ARV means. I already know what questions to ask, what numbers to run, and what red flags to look for, because I've been on your side of the table.</p>
+  </div>
+</section>
+
+<!-- ════════════════ FIVE REASONS ════════════════ -->
+<section class="reasons">
+  <div class="reasons-inner">
+    <div class="eyebrow fade-up">Why investors choose Graysmith</div>
+    <h2 class="fade-up stagger-1">Five reasons investors work with me over a traditional agent.</h2>
+
+    <div class="reason fade-up">
+      <div class="reason-num">01</div>
+      <div>
+        <h3>I understand investor math</h3>
+        <p>Cash-on-cash return. ARV. Cap rate. Debt service coverage. These aren't buzzwords I learned from a YouTube video, they're how I evaluate every deal I look at personally. When you're running numbers, I can run them with you, not just nod along.</p>
+      </div>
+    </div>
+
+    <div class="reason fade-up">
+      <div class="reason-num">02</div>
+      <div>
+        <h3>I've personally done what you're trying to do</h3>
+        <p>Flip? Done it. House hack? Done it, still own it. Wholesale deal? Done it. Buy-and-hold rental? Doing it. I'm not just an agent with a real estate license. I'm an investor who also happens to have one. That combination is rarer than you'd think.</p>
+      </div>
+    </div>
+
+    <div class="reason fade-up">
+      <div class="reason-num">03</div>
+      <div>
+        <h3>I know the Dallas market from an investment lens</h3>
+        <p>Not just which neighborhoods are "up and coming," but which ones actually pencil out. Where rents support the numbers. Where appreciation has outpaced the rest of the metro. Where you can still find value before everyone else figures it out.</p>
+      </div>
+    </div>
+
+    <div class="reason fade-up">
+      <div class="reason-num">04</div>
+      <div>
+        <h3>I have the connections you actually need</h3>
+        <p>Reliable GCs who don't disappear after the deposit. Lenders who understand DSCR loans and investment financing. Property managers for buy-and-hold. These relationships take years to build. You get access to them on day one.</p>
+      </div>
+    </div>
+
+    <div class="reason fade-up">
+      <div class="reason-num">05</div>
+      <div>
+        <h3>I won't talk you into a bad deal</h3>
+        <p>An agent who gets paid on commission has a structural incentive to close deals. If the numbers don't work, I'll tell you. If the neighborhood doesn't support your exit strategy, I'll tell you. I'd rather lose a commission than cost you a bad investment.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ WHO THIS IS FOR ════════════════ -->
+<section class="who-section">
+  <div class="who-inner">
+    <div class="eyebrow fade-up">Investor types</div>
+    <h2 class="fade-up stagger-1">Who I work best with.</h2>
+
+    <div class="who-grid">
+      <div class="who-card fade-up">
+        <h3>First-time investors</h3>
+        <p>You own a home, you've been thinking about this for a while, and you're ready to make your first investment move. You need someone who can explain the strategy without the condescension.</p>
+      </div>
+
+      <div class="who-card fade-up stagger-1">
+        <h3>Move-up buyers keeping the old home</h3>
+        <p>You're moving up and wondering if you should keep your current home as a rental instead of selling. That's a real conversation, and one most agents aren't equipped to have honestly.</p>
+      </div>
+
+      <div class="who-card fade-up stagger-2">
+        <h3>House hackers</h3>
+        <p>You want to buy a duplex, triplex, or property with an ADU, live in one unit and rent the others. One of the smartest first investment moves available and almost nobody talks about it clearly.</p>
+      </div>
+
+      <div class="who-card fade-up stagger-3">
+        <h3>Buy-and-hold rental investors</h3>
+        <p>You're building a portfolio and need an agent who evaluates properties as investments first, homes second. You care about rent-to-price ratio and long-term appreciation, not granite countertops.</p>
+      </div>
+
+      <div class="who-card fade-up stagger-4">
+        <h3>Active flippers</h3>
+        <p>You're looking for deals in Dallas: distressed properties, undervalued assets, off-market opportunities. I understand the numbers a flip needs to work and won't waste your time with properties that don't pencil out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ HONEST DISCLAIMER ════════════════ -->
+<section class="disclaimer">
+  <div class="disclaimer-inner fade-up">
+    <div class="eyebrow">Transparency</div>
+    <h2>One thing I want to be upfront about.</h2>
+    <p>I'm building out my high-end flip consulting practice and it's not fully launched yet. What I can offer right now is a strong foundation: deep market knowledge, personal investing experience, honest deal evaluation, and a network of reliable contractors and lenders. If you're looking for someone who's closed 200 investment deals, that's not me yet. If you're looking for someone who's done it personally, thinks like an investor, and will give you a straight answer every time, that's exactly me.</p>
+  </div>
+</section>
+
+<!-- ════════════════ BOTTOM CTA ════════════════ -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <div class="eyebrow fade-up">Next step</div>
+    <h2 class="fade-up stagger-1">Let's talk about your next deal.</h2>
+    <p class="fade-up stagger-2">Whether you're evaluating your first investment property or building out a Dallas portfolio, book a call and let's run the numbers together. No pitch, no pressure, just a real conversation about what makes sense for your situation.</p>
+    <div class="bottom-cta-buttons fade-up stagger-3">
+      <a href="/contact" class="btn-primary">
+        Book a strategy call
+        <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="/resources" class="btn-secondary">
+        Download the wealth-building guide
+        <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
+          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+        </svg>
+      </a>
+      <p>Helping Dallas millennials build real estate wealth: one move up at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/move-up-method">Move Up Method</a></li>
+        <li><a href="/investors">Investors</a></li>
+        <li><a href="/education">Education</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/resources">Free Guides</a></li>
+        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2025 Graysmith Properties
+    </div>
+    <div class="footer-eho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+      Equal Housing
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+  // Mobile nav
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
