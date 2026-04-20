@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Dallas Neighborhood | Graysmith Properties</title>
+  <meta name="description" content="Answer 7 quick questions and get matched with your ideal Dallas neighborhood, complete with a free guide covering vibes, schools, and hotspots.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C4603A;
+      --avocado: #4A6741;
+      --espresso: #2C2825;
+      --linen: #F5EFE6;
+      --gold: #D4A96A;
+      --white: #FFFFFF;
+      --sand: #D4C4B0;
+      --muted: #7A6A5E;
+      --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      color: var(--espresso);
+      background: var(--linen);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--espresso);
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { height: 42px; width: 42px; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-logo-name {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--body);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: var(--terracotta) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      opacity: 1 !important;
+      font-weight: 500 !important;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover { background: #b35530 !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--linen);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ── QUIZ AREA ── */
+    .quiz-area {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 1.5rem 60px;
+    }
+
+    .quiz-container {
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ── INTRO ── */
+    .intro-bar {
+      width: 72px;
+      height: 3px;
+      background: var(--terracotta);
+      margin: 0 auto 2rem;
+      border-radius: 2px;
+    }
+
+    .quiz-eyebrow {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .quiz-title {
+      font-family: var(--heading);
+      font-size: clamp(2rem, 4.5vw, 2.5rem);
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .quiz-intro-text {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .btn-start {
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--espresso);
+      color: var(--linen);
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-start:hover {
+      background: var(--terracotta);
+      transform: translateY(-2px);
+    }
+
+    /* ── QUESTION SCREEN ── */
+    .question-screen { text-align: left; }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .progress-pct {
+      font-size: 0.75rem;
+      color: var(--sand);
+    }
+
+    .progress-track {
+      height: 3px;
+      background: rgba(212, 196, 176, 0.5);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--terracotta);
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+
+    .q-text {
+      font-family: var(--heading);
+      font-size: clamp(1.4rem, 3.5vw, 1.65rem);
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.35;
+      margin-bottom: 2rem;
+    }
+
+    .options { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .opt {
+      font-family: var(--body);
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-align: left;
+      padding: 1.1rem 1.5rem;
+      background: var(--white);
+      color: var(--espresso);
+      border: 1.5px solid var(--sand);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s, opacity 0.2s;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    .opt:hover:not(:disabled) {
+      border-color: var(--terracotta);
+      transform: translateX(4px);
+    }
+
+    .opt.selected {
+      background: var(--espresso);
+      color: var(--linen);
+      border-color: var(--espresso);
+    }
+
+    .opt:disabled:not(.selected) { opacity: 0.5; cursor: default; }
+
+    /* ── RESULT SCREEN ── */
+    .result-screen { text-align: center; }
+
+    .result-primary {
+      background: var(--white);
+      border: 2px solid var(--espresso);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .result-title {
+      font-family: var(--heading);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--espresso);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-subtitle {
+      font-size: 0.8rem;
+      color: var(--sand);
+      letter-spacing: 0.03em;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-desc {
+      font-size: 0.95rem;
+      color: var(--espresso);
+      opacity: 0.75;
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .btn-download {
+      font-family: var(--body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--terracotta);
+      color: var(--linen);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-download:hover {
+      background: var(--espresso);
+      transform: translateY(-2px);
+    }
+
+    .result-secondary {
+      background: var(--white);
+      border: 1.5px solid var(--sand);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .secondary-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.5rem;
+    }
+
+    .secondary-title {
+      font-family: var(--heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--espresso);
+      margin-bottom: 0.25rem;
+    }
+
+    .secondary-subtitle {
+      font-size: 0.8rem;
+      color: var(--sand);
+    }
+
+    .result-cta-box {
+      background: rgba(44, 40, 37, 0.04);
+      border: 1px solid var(--sand);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--espresso);
+      line-height: 1.7;
+    }
+
+    .btn-retake {
+      font-family: var(--body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--sand);
+      background: none;
+      border: 1px solid var(--sand);
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-retake:hover {
+      color: var(--espresso);
+      border-color: var(--espresso);
+    }
+
+    /* ── FADE ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { animation: fadeUp 0.5s ease-out both; }
+
+    .fade-transition {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--espresso);
+      color: var(--linen);
+      padding: 60px 2rem 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      opacity: 0.55;
+      line-height: 1.7;
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.65rem; }
+
+    .footer-col a {
+      color: var(--linen);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(245, 239, 230, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      opacity: 0.35;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .footer-eho {
+      font-size: 0.7rem;
+      opacity: 0.35;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--espresso);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 2px solid var(--terracotta);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .quiz-area { padding: 100px 1.25rem 40px; }
+      .result-primary { padding: 2rem 1.5rem; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-name">Graysmith</span>
+      <span class="nav-logo-sub">Properties</span>
+    </span>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/move-up-method">Move Up Method</a></li>
+    <li><a href="/education">Education</a></li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/investors">Investors</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/#join" class="nav-cta">Join the list</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════ QUIZ ════════════════ -->
+<section class="quiz-area">
+  <div class="quiz-container" id="quiz-container">
+
+    <!-- INTRO SCREEN -->
+    <div id="intro-screen" class="fade-in">
+      <div class="intro-bar"></div>
+      <p class="quiz-eyebrow">The Move Up Method</p>
+      <h1 class="quiz-title">Find Your Dallas<br>Neighborhood</h1>
+      <p class="quiz-intro-text">Answer 7 quick questions and I'll match you with a free neighborhood guide, complete with vibes, schools, hotspots, and everything you actually need to know.</p>
+      <button class="btn-start" onclick="startQuiz()">Let's Go</button>
+    </div>
+
+    <!-- QUESTION SCREEN -->
+    <div id="question-screen" class="question-screen" style="display:none;"></div>
+
+    <!-- RESULT SCREEN -->
+    <div id="result-screen" class="result-screen" style="display:none;"></div>
+
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
+          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+        </svg>
+      </a>
+      <p>Helping Dallas millennials build real estate wealth: one move up at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/move-up-method">Move Up Method</a></li>
+        <li><a href="/investors">Investors</a></li>
+        <li><a href="/education">Education</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/resources">Free Guides</a></li>
+        <li><a href="/quiz">Move Up Quiz</a></li>
+        <li><a href="/neighborhood-quiz">Neighborhood Quiz</a></li>
+        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2025 Graysmith Properties
+    </div>
+    <div class="footer-eho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+      Equal Housing
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+  // Mobile nav
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
+  });
+
+  // ── Quiz Data ──
+  const questions = [
+    {
+      id: 1,
+      question: "What's your ideal Saturday morning?",
+      options: [
+        { text: "Brunch at a trendy spot, then browsing boutiques", tags: ["dallas", "west-luxury"] },
+        { text: "Farmers market with the kids, then a park", tags: ["north", "northwest", "south"] },
+        { text: "Coffee on the patio, peace and quiet", tags: ["northeast", "east", "south"] },
+        { text: "Youth sports, then errands at Target", tags: ["mid-cities", "north", "northwest"] }
+      ]
+    },
+    {
+      id: 2,
+      question: "What's your budget sweet spot?",
+      options: [
+        { text: "Under $350K: value is king", tags: ["east", "south", "mid-cities"] },
+        { text: "$350K to $550K: solid middle ground", tags: ["north", "northeast", "northwest", "mid-cities"] },
+        { text: "$550K to $800K: room to spread out", tags: ["north", "northwest", "west-luxury"] },
+        { text: "$800K+: go big or go home", tags: ["west-luxury", "dallas"] }
+      ]
+    },
+    {
+      id: 3,
+      question: "Schools: how important?",
+      options: [
+        { text: "THE deciding factor. I'm district-shopping", tags: ["north", "northwest", "west-luxury"] },
+        { text: "Important but not the only thing", tags: ["northeast", "mid-cities", "south"] },
+        { text: "I don't have school-age kids", tags: ["dallas", "east"] }
+      ]
+    },
+    {
+      id: 4,
+      question: "Where do you (or your household) work?",
+      options: [
+        { text: "North Dallas / Legacy / Plano corridor", tags: ["north", "northwest", "northeast"] },
+        { text: "Downtown Dallas / Uptown", tags: ["dallas", "south", "east"] },
+        { text: "Mid-Cities / DFW Airport area", tags: ["mid-cities", "northwest", "west-luxury"] },
+        { text: "Remote: commute doesn't matter", tags: ["south", "east", "northeast", "north"] }
+      ]
+    },
+    {
+      id: 5,
+      question: "What vibe are you going for?",
+      options: [
+        { text: "Urban energy: walkable, restaurants, nightlife", tags: ["dallas", "west-luxury"] },
+        { text: "Established suburban: big trees, good neighbors", tags: ["north", "northeast", "northwest"] },
+        { text: "New construction: everything shiny and fresh", tags: ["north", "south", "east"] },
+        { text: "Small-town feel with room to grow", tags: ["south", "east", "northeast"] }
+      ]
+    },
+    {
+      id: 6,
+      question: "Pick your dealbreaker:",
+      options: [
+        { text: "Long commute. I need to be central", tags: ["dallas", "north", "mid-cities"] },
+        { text: "No yard. My kids and dogs need space", tags: ["northeast", "south", "east", "northwest"] },
+        { text: "Cookie-cutter neighborhood. I want character", tags: ["dallas", "northeast", "west-luxury"] },
+        { text: "Nothing nearby. I need restaurants and retail", tags: ["north", "northwest", "west-luxury", "mid-cities"] }
+      ]
+    },
+    {
+      id: 7,
+      question: "What are you moving FROM?",
+      options: [
+        { text: "A starter home: ready to level up", tags: ["north", "northwest", "northeast", "mid-cities"] },
+        { text: "An apartment or rental: first-time buyer", tags: ["south", "east", "mid-cities", "northeast"] },
+        { text: "Out of state: relocating to DFW", tags: ["north", "northwest", "west-luxury"] },
+        { text: "Already in a nice home: want something different", tags: ["dallas", "west-luxury", "north"] }
+      ]
+    }
+  ];
+
+  const guides = {
+    dallas: {
+      title: "Dallas Proper",
+      subtitle: "Uptown · Lakewood · Lake Highlands · Oak Cliff · Bishop Arts · Deep Ellum · Preston Hollow · Knox-Henderson",
+      emoji: "\u{1F3D9}\u{FE0F}",
+      description: "City living with character. From the energy of Uptown to the charm of Lakewood, this guide covers Dallas neighborhoods that feel nothing like the suburbs."
+    },
+    north: {
+      title: "North Corridor",
+      subtitle: "Plano · Richardson · Allen · McKinney · Frisco · Prosper · Celina · Anna",
+      emoji: "\u{1F9ED}",
+      description: "The powerhouse corridor. Top-rated schools, corporate headquarters, and neighborhoods ranging from established Plano to boom-town Celina."
+    },
+    northwest: {
+      title: "Northwest Corridor",
+      subtitle: "Carrollton · Lewisville · Flower Mound · Highland Village · Coppell · The Colony · Little Elm · Denton",
+      emoji: "\u{1F333}",
+      description: "Lake life meets suburban comfort. Family-forward communities with strong schools and easy access to DFW Airport."
+    },
+    northeast: {
+      title: "Northeast Corridor",
+      subtitle: "Garland · Rowlett · Rockwall · Wylie · Sachse · Murphy",
+      emoji: "\u{26F5}",
+      description: "Lake Ray Hubbard country. More space, more value, and a tight-knit community feel that's hard to find closer in."
+    },
+    south: {
+      title: "South Corridor",
+      subtitle: "Cedar Hill · DeSoto · Duncanville · Lancaster · Mansfield · Midlothian · Waxahachie · Red Oak",
+      emoji: "\u{1F33E}",
+      description: "Southern charm with surprising value. Rolling terrain, acreage options, and communities with deep roots."
+    },
+    "mid-cities": {
+      title: "Mid-Cities",
+      subtitle: "Arlington · Grand Prairie · Irving · Euless · Bedford · Hurst",
+      emoji: "\u{2708}\u{FE0F}",
+      description: "Central to everything. Stadium district energy, airport proximity, and solid value for families and commuters."
+    },
+    "west-luxury": {
+      title: "West / Luxury Corridor",
+      subtitle: "Southlake · Colleyville · Grapevine · Keller · Trophy Club · Westlake",
+      emoji: "\u{2728}",
+      description: "The prestige zip codes. Premier schools, luxury estates, and communities where the bar is set high."
+    },
+    east: {
+      title: "East Corridor",
+      subtitle: "Mesquite · Forney · Terrell · Kaufman · Balch Springs",
+      emoji: "\u{1F305}",
+      description: "The emerging frontier. Maximum bang for your buck, new construction everywhere, and communities on the rise."
+    }
+  };
+
+  // ── Quiz State ──
+  let currentQ = 0;
+  let scores = {};
+  let locked = false;
+
+  function startQuiz() {
+    currentQ = 0;
+    scores = {};
+    locked = false;
+    document.getElementById('intro-screen').style.display = 'none';
+    document.getElementById('result-screen').style.display = 'none';
+    var qs = document.getElementById('question-screen');
+    qs.style.display = 'block';
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    var q = questions[currentQ];
+    var progress = ((currentQ + 1) / questions.length) * 100;
+    var qs = document.getElementById('question-screen');
+
+    qs.innerHTML =
+      '<div class="fade-in">' +
+        '<div class="progress-header">' +
+          '<span class="progress-label">Question ' + (currentQ + 1) + ' of ' + questions.length + '</span>' +
+          '<span class="progress-pct">' + Math.round(progress) + '%</span>' +
+        '</div>' +
+        '<div class="progress-track"><div class="progress-fill" style="width:' + progress + '%"></div></div>' +
+        '<h2 class="q-text">' + q.question + '</h2>' +
+        '<div class="options">' +
+          q.options.map(function(opt, i) {
+            return '<button class="opt" data-idx="' + i + '">' + opt.text + '</button>';
+          }).join('') +
+        '</div>' +
+      '</div>';
+
+    locked = false;
+
+    qs.querySelectorAll('.opt').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (locked) return;
+        locked = true;
+        var idx = parseInt(btn.dataset.idx);
+        var option = q.options[idx];
+
+        btn.classList.add('selected');
+        qs.querySelectorAll('.opt').forEach(function(b) { b.disabled = true; });
+
+        option.tags.forEach(function(tag) {
+          scores[tag] = (scores[tag] || 0) + 1;
+        });
+
+        setTimeout(function() {
+          if (currentQ < questions.length - 1) {
+            currentQ++;
+            renderQuestion();
+          } else {
+            showResult();
+          }
+        }, 600);
+      });
+    });
+  }
+
+  function showResult() {
+    var sorted = Object.entries(scores).sort(function(a, b) { return b[1] - a[1]; });
+    var primary = sorted[0][0];
+    var secondary = sorted[1] ? sorted[1][0] : null;
+    var g = guides[primary];
+
+    document.getElementById('question-screen').style.display = 'none';
+    var rs = document.getElementById('result-screen');
+    rs.style.display = 'block';
+
+    var html =
+      '<div class="fade-in">' +
+        '<p class="quiz-eyebrow">Your Match</p>' +
+        '<div class="result-primary">' +
+          '<div class="result-emoji">' + g.emoji + '</div>' +
+          '<h2 class="result-title">' + g.title + '</h2>' +
+          '<p class="result-subtitle">' + g.subtitle + '</p>' +
+          '<p class="result-desc">' + g.description + '</p>' +
+          '<button class="btn-download" onclick="window.location.href=\'/resources\'">Download Free Guide</button>' +
+        '</div>';
+
+    if (secondary) {
+      var s = guides[secondary];
+      html +=
+        '<div class="result-secondary">' +
+          '<p class="secondary-label">Also Worth Exploring</p>' +
+          '<p class="secondary-title">' + s.emoji + ' ' + s.title + '</p>' +
+          '<p class="secondary-subtitle">' + s.subtitle + '</p>' +
+        '</div>';
+    }
+
+    html +=
+        '<div class="result-cta-box">' +
+          'Want all 8 guides in one download? Grab the <strong>Dallas Neighborhood Textbook</strong>, perfect if you\'re relocating or just want the full picture.' +
+        '</div>' +
+        '<button class="btn-retake" onclick="startQuiz()">Retake Quiz</button>' +
+      '</div>';
+
+    rs.innerHTML = html;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Path Quiz | Graysmith Properties</title>
+  <meta name="description" content="Take the Move Up Method quiz to find your real estate path. Three quick questions to see where you stand and what your next move should be.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --terracotta: #C4603A;
+      --avocado: #4A6741;
+      --espresso: #2C2825;
+      --linen: #F5EFE6;
+      --gold: #D4A96A;
+      --white: #FFFFFF;
+      --muted: #7A6A5E;
+      --sand: #E8DDD0;
+      --sand-dark: #D4C4B0;
+      --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --body: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      color: var(--espresso);
+      background: var(--linen);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--espresso);
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-logo svg { height: 42px; width: 42px; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .nav-logo-name {
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-logo-sub {
+      font-family: var(--body);
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--avocado);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      opacity: 0.85;
+      transition: opacity 0.25s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: var(--terracotta) !important;
+      color: var(--white) !important;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      opacity: 1 !important;
+      font-weight: 500 !important;
+      transition: background 0.25s !important;
+    }
+
+    .nav-cta:hover { background: #b35530 !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--linen);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ── QUIZ SECTION ── */
+    .quiz-section {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 1.5rem 60px;
+    }
+
+    .quiz-card {
+      width: 100%;
+      max-width: 600px;
+      background: var(--white);
+      border: 1px solid var(--sand-dark);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    /* Progress bar */
+    .quiz-topbar {
+      background: var(--espresso);
+      padding: 1.5rem 2rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .quiz-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand);
+      white-space: nowrap;
+    }
+
+    .progress-track {
+      flex: 1;
+      display: flex;
+      gap: 5px;
+    }
+
+    .pip {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+      transition: background 0.4s ease;
+    }
+
+    .pip.active { background: var(--terracotta); }
+    .pip.done { background: rgba(255,255,255,0.6); }
+
+    /* Question body */
+    .quiz-body { padding: 2.5rem 2rem 2rem; }
+
+    .step { display: none; }
+    .step.visible {
+      display: block;
+      animation: fadeUp 0.35s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .q-number {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.75rem;
+    }
+
+    .q-text {
+      font-family: var(--heading);
+      font-size: 1.75rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--espresso);
+      margin-bottom: 2rem;
+    }
+
+    /* Options */
+    .options { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--sand-dark);
+      border-radius: 4px;
+      background: var(--white);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      font-family: var(--body);
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.4;
+      width: 100%;
+    }
+
+    .opt:hover {
+      border-color: var(--terracotta);
+      background: #fdf8f5;
+      transform: translateX(3px);
+    }
+
+    .opt-dot {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      border: 1.5px solid var(--sand-dark);
+      border-radius: 50%;
+      transition: border-color 0.2s;
+    }
+
+    .opt:hover .opt-dot { border-color: var(--terracotta); }
+
+    /* Result */
+    .result-topbar {
+      background: var(--terracotta);
+      padding: 1.5rem 2rem;
+    }
+
+    .result-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.35rem;
+    }
+
+    .result-headline {
+      font-family: var(--heading);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .result-body-wrap { padding: 2rem; }
+
+    .result-body-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+
+    /* Flodesk */
+    .flodesk-wrap {
+      border-top: 1px solid var(--sand);
+      padding-top: 1.75rem;
+    }
+
+    .flodesk-intro {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .flodesk-placeholder {
+      border: 1.5px dashed var(--sand-dark);
+      border-radius: 4px;
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--linen);
+    }
+
+    .flodesk-placeholder p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .flodesk-placeholder code {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      background: var(--sand);
+      padding: 2px 8px;
+      border-radius: 2px;
+      color: var(--espresso);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--espresso);
+      color: var(--linen);
+      padding: 60px 2rem 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      opacity: 0.55;
+      line-height: 1.7;
+      margin-top: 1rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.65rem; }
+
+    .footer-col a {
+      color: var(--linen);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(245, 239, 230, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      opacity: 0.35;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .footer-eho {
+      font-size: 0.7rem;
+      opacity: 0.35;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--espresso);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 2px solid var(--terracotta);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (max-width: 600px) {
+      .quiz-section { padding: 100px 1.25rem 40px; }
+      .quiz-topbar { padding: 1.25rem 1.25rem 1rem; }
+      .quiz-body { padding: 1.75rem 1.25rem 1.5rem; }
+      .q-text { font-size: 1.4rem; }
+      .result-topbar { padding: 1.25rem; }
+      .result-body-wrap { padding: 1.5rem 1.25rem; }
+
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ NAVIGATION ════════════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-name">Graysmith</span>
+      <span class="nav-logo-sub">Properties</span>
+    </span>
+  </a>
+
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/move-up-method">Move Up Method</a></li>
+    <li><a href="/education">Education</a></li>
+    <li><a href="/resources">Resources</a></li>
+    <li><a href="/investors">Investors</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/#join" class="nav-cta">Join the list</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════ QUIZ ════════════════ -->
+<section class="quiz-section">
+  <div class="quiz-card" id="quiz-card">
+
+    <!-- Progress bar -->
+    <div class="quiz-topbar" id="quiz-topbar">
+      <span class="quiz-eyebrow" id="step-label">Question 1 of 3</span>
+      <div class="progress-track">
+        <div class="pip active" id="pip1"></div>
+        <div class="pip" id="pip2"></div>
+        <div class="pip" id="pip3"></div>
+      </div>
+    </div>
+
+    <!-- Questions -->
+    <div class="quiz-body" id="quiz-body">
+
+      <!-- Q1 -->
+      <div class="step visible" id="q1">
+        <p class="q-number">Question 1 of 3</p>
+        <h2 class="q-text">Where are you right now with homeownership?</h2>
+        <div class="options">
+          <button class="opt" onclick="answer(1,'renter')">
+            <span class="opt-dot"></span>
+            Renting and thinking about buying my first home
+          </button>
+          <button class="opt" onclick="answer(1,'owner')">
+            <span class="opt-dot"></span>
+            I already own a home
+          </button>
+          <button class="opt" onclick="answer(1,'unsure')">
+            <span class="opt-dot"></span>
+            It's complicated: living with family, in between, figuring it out
+          </button>
+        </div>
+      </div>
+
+      <!-- Q2 (dynamic based on Q1 answer) -->
+      <div class="step" id="q2">
+        <p class="q-number">Question 2 of 3</p>
+        <h2 class="q-text" id="q2-text"></h2>
+        <div class="options" id="q2-opts"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="step" id="q3">
+        <p class="q-number">Question 3 of 3</p>
+        <h2 class="q-text">What does building wealth through real estate mean to you?</h2>
+        <div class="options">
+          <button class="opt" onclick="answer(3,'rent')">
+            <span class="opt-dot"></span>
+            Stopping the cycle of throwing money at rent
+          </button>
+          <button class="opt" onclick="answer(3,'family')">
+            <span class="opt-dot"></span>
+            Making my home work harder for my family
+          </button>
+          <button class="opt" onclick="answer(3,'legacy')">
+            <span class="opt-dot"></span>
+            Creating something I can pass down or build on
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Result screen -->
+    <div id="result-screen" style="display:none;">
+      <div class="result-topbar">
+        <p class="result-label">Your path</p>
+        <h2 class="result-headline" id="result-headline"></h2>
+      </div>
+      <div class="result-body-wrap">
+        <p class="result-body-text" id="result-body"></p>
+        <div class="flodesk-wrap">
+          <p class="flodesk-intro" id="flodesk-intro"></p>
+
+          <!--
+          ═══════════════════════════════════════════════════════════════
+          HOW TO ADD YOUR FLODESK FORMS:
+
+          1. In Flodesk > Forms > Create Form > Inline
+          2. Create one form tagged "ftb" (first-time buyers)
+             and one tagged "owner" (current homeowners)
+          3. Click Share > Copy embed code
+          4. Paste each embed code inside the matching div below
+          5. Delete the placeholder div inside each one
+
+          The quiz automatically shows the right form based on
+          the visitor's answers. You only need to publish once.
+          ═══════════════════════════════════════════════════════════════
+          -->
+
+          <!-- Shown to renters + unsure visitors -->
+          <div id="form-ftb" style="display:none;">
+            <!-- PASTE YOUR FLODESK "ftb" EMBED CODE HERE -->
+            <div class="flodesk-placeholder">
+              <p>Paste your Flodesk <strong>first-time buyer</strong> form embed code here.<br>
+              Tag to apply in Flodesk: <code>ftb</code></p>
+            </div>
+          </div>
+
+          <!-- Shown to current homeowners -->
+          <div id="form-owner" style="display:none;">
+            <!-- PASTE YOUR FLODESK "owner" EMBED CODE HERE -->
+            <div class="flodesk-placeholder">
+              <p>Paste your Flodesk <strong>homeowner</strong> form embed code here.<br>
+              Tag to apply in Flodesk: <code>owner</code></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
+          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
+          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
+          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
+        </svg>
+      </a>
+      <p>Helping Dallas millennials build real estate wealth: one move up at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/move-up-method">Move Up Method</a></li>
+        <li><a href="/investors">Investors</a></li>
+        <li><a href="/education">Education</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/resources">Free Guides</a></li>
+        <li><a href="/quiz">Move Up Quiz</a></li>
+        <li><a href="/neighborhood-quiz">Neighborhood Quiz</a></li>
+        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2025 Graysmith Properties
+    </div>
+    <div class="footer-eho">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+      Equal Housing
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+  // Mobile nav
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+    }
+  });
+
+  // Quiz logic
+  const answers = {};
+
+  const q2Config = {
+    renter: {
+      text: "What's holding you back from buying right now?",
+      opts: [
+        { label: "I don't think I can afford it yet", val: "afford" },
+        { label: "I'm not sure where to start", val: "lost" },
+        { label: "I'm waiting for the market to settle down", val: "timing" }
+      ]
+    },
+    owner: {
+      text: "How are you thinking about your home right now?",
+      opts: [
+        { label: "As a place to live. I haven't thought much about the equity", val: "passive" },
+        { label: "I know it has equity but haven't done anything with it", val: "aware" },
+        { label: "I'm actively thinking about moving up or investing", val: "active" }
+      ]
+    },
+    unsure: {
+      text: "What's your general situation?",
+      opts: [
+        { label: "I want to buy but haven't made a move yet", val: "want" },
+        { label: "I'm figuring out if buying even makes sense for me", val: "figuring" },
+        { label: "I'm between homes right now", val: "between" }
+      ]
+    }
+  };
+
+  const results = {
+    renter: {
+      headline: "You're closer than you think.",
+      body: "The Move Up Method starts exactly where you are. You don't need perfect timing or a huge down payment. You need a first move that sets you up for the next one. Enter your info below and I'll send you a free plan for getting in the game.",
+      intro: "Get your first move plan, free",
+      form: "ftb"
+    },
+    owner: {
+      headline: "Your equity is already working. You just haven't told it where to go.",
+      body: "You've done the hard part. Now it's about making your home's value work intentionally, so your next move builds real wealth, not just a bigger mortgage. Enter your info below and I'll send you a free equity breakdown.",
+      intro: "Get your free equity snapshot",
+      form: "owner"
+    },
+    unsure: {
+      headline: "Good news: there's no wrong time to get a plan.",
+      body: "Whether you're a week away or a year away from buying, knowing your number and your strategy changes everything. Enter your info below and I'll help you figure out your actual starting point.",
+      intro: "Get your first move plan, free",
+      form: "ftb"
+    }
+  };
+
+  function setPips(active) {
+    [1, 2, 3].forEach(function(i) {
+      var pip = document.getElementById('pip' + i);
+      pip.className = 'pip' + (i < active ? ' done' : i === active ? ' active' : '');
+    });
+  }
+
+  function showStep(id, pipNum, labelText) {
+    ['q1','q2','q3'].forEach(function(s) {
+      var el = document.getElementById(s);
+      if (el) el.classList.remove('visible');
+    });
+    var next = document.getElementById(id);
+    if (next) {
+      next.classList.add('visible');
+      setPips(pipNum);
+      document.getElementById('step-label').textContent = labelText;
+    }
+  }
+
+  function answer(q, val) {
+    answers[q] = val;
+
+    if (q === 1) {
+      var cfg = q2Config[val];
+      document.getElementById('q2-text').textContent = cfg.text;
+      var grid = document.getElementById('q2-opts');
+      grid.innerHTML = '';
+      cfg.opts.forEach(function(o) {
+        var btn = document.createElement('button');
+        btn.className = 'opt';
+        btn.innerHTML = '<span class="opt-dot"></span>' + o.label;
+        btn.onclick = function() { answer(2, o.val); };
+        grid.appendChild(btn);
+      });
+      showStep('q2', 2, 'Question 2 of 3');
+
+    } else if (q === 2) {
+      showStep('q3', 3, 'Question 3 of 3');
+
+    } else if (q === 3) {
+      var profile = answers[1];
+      var r = results[profile];
+
+      document.getElementById('result-headline').textContent = r.headline;
+      document.getElementById('result-body').textContent = r.body;
+      document.getElementById('flodesk-intro').textContent = r.intro;
+
+      document.getElementById('form-ftb').style.display = r.form === 'ftb' ? 'block' : 'none';
+      document.getElementById('form-owner').style.display = r.form === 'owner' ? 'block' : 'none';
+
+      document.getElementById('quiz-topbar').style.display = 'none';
+      document.getElementById('quiz-body').style.display = 'none';
+
+      var resultScreen = document.getElementById('result-screen');
+      resultScreen.style.display = 'block';
+      resultScreen.style.animation = 'fadeUp 0.4s ease both';
+    }
+  }
+</script>
+
+</body>
+</html>

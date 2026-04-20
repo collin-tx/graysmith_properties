@@ -296,6 +296,11 @@
       transform: translateY(-1px);
     }
 
+    a.resource-card-link {
+      text-decoration: none;
+      color: var(--espresso);
+    }
+
     /* ── MODAL ── */
     .modal-overlay {
       position: fixed;
@@ -591,24 +596,8 @@
     <div class="resource-card fade-up">
       <div>
         <div class="resource-meta">
-          <span class="resource-type">Checklist</span>
-          <span class="resource-number">01</span>
-        </div>
-        <h3 class="resource-title">Am I ready to move up? The honest checklist.</h3>
-        <p class="resource-tagline">Find out if you're closer than you think.</p>
-      </div>
-      <button class="resource-download" data-resource="Am I Ready to Move Up? Checklist">
-        Download free
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-    <!-- Resource 02 -->
-    <div class="resource-card fade-up stagger-1">
-      <div>
-        <div class="resource-meta">
           <span class="resource-type">PDF Guide</span>
-          <span class="resource-number">02</span>
+          <span class="resource-number">01</span>
         </div>
         <h3 class="resource-title">The Move Up Method: your step-by-step guide.</h3>
         <p class="resource-tagline">The playbook nobody hands you at closing.</p>
@@ -619,28 +608,29 @@
       </button>
     </div>
 
+    <!-- Neighborhood Quiz -->
+    <a href="/neighborhood-quiz" class="resource-card resource-card-link fade-up stagger-1">
+      <div>
+        <div class="resource-meta">
+          <span class="resource-type" style="background: var(--avocado);">Quiz</span>
+          <span class="resource-number">02</span>
+        </div>
+        <h3 class="resource-title">Find your Dallas neighborhood.</h3>
+        <p class="resource-tagline">7 quick questions to match you with the right area. Free guide included.</p>
+      </div>
+      <span class="resource-download" style="pointer-events: none;">
+        Take the quiz
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
     <!-- Resource 03 -->
-    <div class="resource-card fade-up stagger-2">
+     <!-- removing neighborhood guide for now as this is accessible via quiz -->
+    <!-- <div class="resource-card fade-up stagger-2">
       <div>
         <div class="resource-meta">
           <span class="resource-type">PDF Guide</span>
           <span class="resource-number">03</span>
-        </div>
-        <h3 class="resource-title">Build wealth with real estate: your first moves.</h3>
-        <p class="resource-tagline">Your primary home was just the beginning.</p>
-      </div>
-      <button class="resource-download" data-resource="Build Wealth With Real Estate Guide">
-        Download free
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-    <!-- Resource 04 -->
-    <div class="resource-card fade-up stagger-3">
-      <div>
-        <div class="resource-meta">
-          <span class="resource-type">PDF Guide</span>
-          <span class="resource-number">04</span>
         </div>
         <h3 class="resource-title">Dallas neighborhood guide for move-up buyers.</h3>
         <p class="resource-tagline">The Dallas neighborhood guide no one else will give you.</p>
@@ -649,23 +639,23 @@
         Download free
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-    </div>
+    </div> -->
 
-    <!-- Resource 05 -->
-    <div class="resource-card fade-up stagger-4">
+    <!-- Move Up Quiz -->
+    <a href="/quiz" class="resource-card resource-card-link fade-up stagger-3">
       <div>
         <div class="resource-meta">
-          <span class="resource-type">PDF Guide</span>
-          <span class="resource-number">05</span>
+          <span class="resource-type" style="background: var(--avocado);">Quiz</span>
+          <span class="resource-number">03</span>
         </div>
-        <h3 class="resource-title">You haven't missed your window. But you might be closing it.</h3>
-        <p class="resource-tagline">The guide that finally makes the rent vs. buy math make sense.</p>
+        <h3 class="resource-title">Find your path: the Move Up Method quiz.</h3>
+        <p class="resource-tagline">3 questions. Your personalized next step. Takes 60 seconds.</p>
       </div>
-      <button class="resource-download" data-resource="Rent vs. Buy Guide">
-        Download free
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
+      <span class="resource-download" style="pointer-events: none;">
+        Take the quiz
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
 
   </div>
 </section>
@@ -716,13 +706,15 @@
       <ul>
         <li><a href="/contact">Contact</a></li>
         <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#4e3c2f2d262f2b220e293c2f373d23273a263e3c213e2b3c3a272b3d602d2123">Email</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Resources</h4>
       <ul>
         <li><a href="/resources">Free Guides</a></li>
+        <li><a href="/quiz">Move Up Quiz</a></li>
+        <li><a href="/neighborhood-quiz">Neighborhood Quiz</a></li>
         <li><a href="/contact">Book a Call</a></li>
         <li><a href="/privacy">Privacy Policy</a></li>
       </ul>
@@ -740,7 +732,7 @@
 </footer>
 
 <!-- ════════════════ SCRIPTS ════════════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Mobile nav
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
