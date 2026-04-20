@@ -511,7 +511,7 @@
 <section class="contact-options">
   <div class="options-inner">
 
-    <a href="#" class="option-card fade-up">
+    <a href="https://calendly.com/rachael-graysmithproperties/website-new-client-meeting" target="_blank" rel="noopener" class="option-card fade-up">
       <div class="option-icon cal">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="14" rx="2" stroke="#C4603A" stroke-width="1.5"/><path d="M3 9h16M7 3v4M15 3v4" stroke="#C4603A" stroke-width="1.5" stroke-linecap="round"/></svg>
       </div>
@@ -556,12 +556,13 @@
     <div class="eyebrow">Send a message</div>
     <h2>Drop a line. I'll get back to you within one business day.</h2>
     <p class="form-subtext">Use the form below or email me directly at <a href="mailto:rachael@graysmithproperties.com">rachael@graysmithproperties.com</a></p>
-    <form class="contact-form" onsubmit="event.preventDefault()">
-      <input type="text" class="form-input" placeholder="First name" required>
-      <input type="email" class="form-input" placeholder="Email address" required>
-      <textarea class="form-input" placeholder="I'm thinking about moving up and want to talk through the timing..."></textarea>
-      <button type="submit" class="form-submit">Send it</button>
+    <form class="contact-form" action="https://formspree.io/f/meevlqjo" method="POST" id="contact-form">
+      <input type="text" name="name" class="form-input" placeholder="First name" required>
+      <input type="email" name="email" class="form-input" placeholder="Email address" required>
+      <textarea name="message" class="form-input" placeholder="I'm thinking about moving up and want to talk through the timing..."></textarea>
+      <button type="submit" class="form-submit" id="form-submit-btn">Send it</button>
     </form>
+    <p id="form-success" style="display:none; margin-top:1rem; font-size:0.9rem; color: var(--avocado); font-weight:500;">Got it. I'll be in touch within one business day.</p>
   </div>
 </section>
 
@@ -643,6 +644,38 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Formspree AJAX submission
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('form-submit-btn');
+  const successMsg = document.getElementById('form-success');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      } else {
+        submitBtn.textContent = 'Send it';
+        submitBtn.disabled = false;
+        alert('Something went wrong. Please email rachael@graysmithproperties.com directly.');
+      }
+    } catch (err) {
+      submitBtn.textContent = 'Send it';
+      submitBtn.disabled = false;
+      alert('Something went wrong. Please email rachael@graysmithproperties.com directly.');
+    }
+  });
 </script>
 
 </body>
