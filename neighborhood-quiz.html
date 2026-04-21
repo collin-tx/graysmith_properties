@@ -313,6 +313,8 @@
     }
 
     .btn-download {
+      display: inline-block;
+      text-decoration: none;
       font-family: var(--body);
       font-size: 0.8rem;
       font-weight: 500;
@@ -707,49 +709,57 @@
       title: "Dallas Proper",
       subtitle: "Uptown · Lakewood · Lake Highlands · Oak Cliff · Bishop Arts · Deep Ellum · Preston Hollow · Knox-Henderson",
       emoji: "\u{1F3D9}\u{FE0F}",
-      description: "City living with character. From the energy of Uptown to the charm of Lakewood, this guide covers Dallas neighborhoods that feel nothing like the suburbs."
+      description: "City living with character. From the energy of Uptown to the charm of Lakewood, this guide covers Dallas neighborhoods that feel nothing like the suburbs.",
+      pdf: "/neighborhood-guides/dallas-proper-guide.pdf"
     },
     north: {
       title: "North Corridor",
       subtitle: "Plano · Richardson · Allen · McKinney · Frisco · Prosper · Celina · Anna",
       emoji: "\u{1F9ED}",
-      description: "The powerhouse corridor. Top-rated schools, corporate headquarters, and neighborhoods ranging from established Plano to boom-town Celina."
+      description: "The powerhouse corridor. Top-rated schools, corporate headquarters, and neighborhoods ranging from established Plano to boom-town Celina.",
+      pdf: "/neighborhood-guides/north-corridor-guide.pdf"
     },
     northwest: {
       title: "Northwest Corridor",
       subtitle: "Carrollton · Lewisville · Flower Mound · Highland Village · Coppell · The Colony · Little Elm · Denton",
       emoji: "\u{1F333}",
-      description: "Lake life meets suburban comfort. Family-forward communities with strong schools and easy access to DFW Airport."
+      description: "Lake life meets suburban comfort. Family-forward communities with strong schools and easy access to DFW Airport.",
+      pdf: "/neighborhood-guides/northwest-corridor-guide.pdf"
     },
     northeast: {
       title: "Northeast Corridor",
       subtitle: "Garland · Rowlett · Rockwall · Wylie · Sachse · Murphy",
       emoji: "\u{26F5}",
-      description: "Lake Ray Hubbard country. More space, more value, and a tight-knit community feel that's hard to find closer in."
+      description: "Lake Ray Hubbard country. More space, more value, and a tight-knit community feel that's hard to find closer in.",
+      pdf: "/neighborhood-guides/northeast-corridor-guide.pdf"
     },
     south: {
       title: "South Corridor",
       subtitle: "Cedar Hill · DeSoto · Duncanville · Lancaster · Mansfield · Midlothian · Waxahachie · Red Oak",
       emoji: "\u{1F33E}",
-      description: "Southern charm with surprising value. Rolling terrain, acreage options, and communities with deep roots."
+      description: "Southern charm with surprising value. Rolling terrain, acreage options, and communities with deep roots.",
+      pdf: "/neighborhood-guides/south-corridor-guide.pdf"
     },
     "mid-cities": {
       title: "Mid-Cities",
       subtitle: "Arlington · Grand Prairie · Irving · Euless · Bedford · Hurst",
       emoji: "\u{2708}\u{FE0F}",
-      description: "Central to everything. Stadium district energy, airport proximity, and solid value for families and commuters."
+      description: "Central to everything. Stadium district energy, airport proximity, and solid value for families and commuters.",
+      pdf: "/neighborhood-guides/mid-cities-guide.pdf"
     },
     "west-luxury": {
       title: "West / Luxury Corridor",
       subtitle: "Southlake · Colleyville · Grapevine · Keller · Trophy Club · Westlake",
       emoji: "\u{2728}",
-      description: "The prestige zip codes. Premier schools, luxury estates, and communities where the bar is set high."
+      description: "The prestige zip codes. Premier schools, luxury estates, and communities where the bar is set high.",
+      pdf: "/neighborhood-guides/west-luxury-corridor-guide.pdf"
     },
     east: {
       title: "East Corridor",
       subtitle: "Mesquite · Forney · Terrell · Kaufman · Balch Springs",
       emoji: "\u{1F305}",
-      description: "The emerging frontier. Maximum bang for your buck, new construction everywhere, and communities on the rise."
+      description: "The emerging frontier. Maximum bang for your buck, new construction everywhere, and communities on the rise.",
+      pdf: "/neighborhood-guides/east-corridor-guide.pdf"
     }
   };
 
@@ -835,7 +845,7 @@
           '<h2 class="result-title">' + g.title + '</h2>' +
           '<p class="result-subtitle">' + g.subtitle + '</p>' +
           '<p class="result-desc">' + g.description + '</p>' +
-          '<button class="btn-download" onclick="window.location.href=\'/resources\'">Download Free Guide</button>' +
+          '<a class="btn-download" href="' + g.pdf + '" download>Download Free Guide</a>' +
         '</div>';
 
     if (secondary) {
@@ -856,6 +866,15 @@
       '</div>';
 
     rs.innerHTML = html;
+  }
+
+  function downloadGuide(path, title) {
+    var a = document.createElement('a');
+    a.href = path;
+    a.download = title.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '-guide.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   }
 </script>
 

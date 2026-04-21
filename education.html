@@ -404,6 +404,36 @@
       font-style: italic;
     }
 
+    .more-coming-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      text-decoration: none;
+      transition: gap 0.25s;
+    }
+
+    .more-coming-link:hover { gap: 0.7rem; }
+
+    .article-loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      font-size: 0.9rem;
+      color: var(--espresso);
+      opacity: 0.4;
+    }
+
+    .article-error {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.5;
+    }
+
     /* ── BOTTOM CTA ── */
     .bottom-cta {
       background: var(--avocado);
@@ -628,91 +658,15 @@
 <!-- ════════════════ ARTICLES GRID ════════════════ -->
 <section class="articles">
   <div class="articles-inner">
-    <div class="articles-grid">
-
-      <!-- Article 1 -->
-      <a href="#" class="article-card fade-up" data-topics="equity move-up">
-        <div class="article-thumb t1">
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-            <rect x="10" y="22" width="40" height="28" rx="3" stroke="#2C2825" stroke-width="1.5"/>
-            <path d="M18 22V16a12 12 0 0124 0v6" stroke="#2C2825" stroke-width="1.5"/>
-            <circle cx="30" cy="38" r="5" stroke="#C4603A" stroke-width="1.5"/>
-          </svg>
-        </div>
-        <div class="article-content">
-          <div class="article-topic">Equity Explained</div>
-          <h3 class="article-title">What is home equity, actually? And why should you care?</h3>
-          <p class="article-excerpt">Most Dallas homeowners have built up more equity than they realize. Here's what it means, how to find yours, and what you can do with it.</p>
-          <span class="article-read">
-            Read article
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- Article 2 -->
-      <a href="#" class="article-card fade-up stagger-1" data-topics="market">
-        <div class="article-thumb t2">
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-            <path d="M10 45l12-15 10 8 18-23" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="50" cy="15" r="3" fill="#C4603A"/>
-            <path d="M8 48h46" stroke="#F5EFE6" stroke-width="1" opacity="0.3"/>
-          </svg>
-        </div>
-        <div class="article-content">
-          <div class="article-topic">Dallas Market</div>
-          <h3 class="article-title">Honest take: the Dallas market right now and what it means for your move</h3>
-          <p class="article-excerpt">Rates are complicated, inventory is shifting, and everyone has an opinion. Here's what's actually happening and what it means if you're thinking about moving up.</p>
-          <span class="article-read">
-            Read article
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- Article 3 -->
-      <a href="#" class="article-card fade-up stagger-2" data-topics="move-up selling">
-        <div class="article-thumb t3">
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-            <path d="M15 45h8v-12h-8zM27 45h8v-20h-8zM39 45h8v-28h-8z" stroke="#F5EFE6" stroke-width="1.5"/>
-            <path d="M18 25l13-10 13 8" stroke="#C4603A" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"/>
-          </svg>
-        </div>
-        <div class="article-content">
-          <div class="article-topic">Move-Up Buying</div>
-          <h3 class="article-title">How to sell and buy at the same time without panicking</h3>
-          <p class="article-excerpt">The logistics of a simultaneous sale and purchase are the number one thing people stress about. Here's how to plan it so you're not caught in the gap.</p>
-          <span class="article-read">
-            Read article
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <!-- Article 4 -->
-      <a href="#" class="article-card fade-up stagger-3" data-topics="wealth investing">
-        <div class="article-thumb t4">
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-            <path d="M30 12v36M18 24l12-12 12 12" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 36h16" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-            <path d="M18 42h24" stroke="#F5EFE6" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-          </svg>
-        </div>
-        <div class="article-content">
-          <div class="article-topic">Building Wealth</div>
-          <h3 class="article-title">Your primary home was just the beginning. Now what?</h3>
-          <p class="article-excerpt">You bought your first place. Nice. But if you're thinking about real estate as a wealth-building tool, here's how to start looking at your next moves.</p>
-          <span class="article-read">
-            Read article
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-      </a>
-
+    <div class="articles-grid" id="articles-grid">
+      <!-- Articles loaded dynamically from Substack RSS -->
+      <div class="article-loading fade-up">Loading articles...</div>
     </div>
-
-    <div class="more-coming fade-up">
-      <p>More articles coming soon. Subscribe on Substack to get them first.</p>
+    <div class="more-coming fade-up" id="substack-link" style="display:none;">
+      <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener" class="more-coming-link">
+        See all articles on Substack
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -723,7 +677,7 @@
     <div class="eyebrow fade-up">Never miss a post</div>
     <h2 class="fade-up stagger-1">Want this in your inbox?</h2>
     <p class="fade-up stagger-2">Subscribe on Substack and get new articles delivered straight to you, plus real talk about the Dallas market, move-up strategy, and wealth-building through real estate.</p>
-    <a href="#" class="btn-primary fade-up stagger-3">
+    <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener" class="btn-primary fade-up stagger-3">
       Subscribe on Substack
       <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -758,7 +712,7 @@
       <ul>
         <li><a href="/contact">Contact</a></li>
         <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#542635373c353138143326352d27393d203c24263b243126203d31277a373b39">Email</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -784,7 +738,7 @@
 </footer>
 
 <!-- ════════════════ SCRIPTS ════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Mobile nav
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -800,18 +754,30 @@
     }
   });
 
-  // Topic filter pills
+  // Scroll animations — observe ALL fade-up elements including those already in viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+  function observeAll() {
+    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+  }
+
+  // Run on DOMContentLoaded so hero + pills are picked up immediately
+  document.addEventListener('DOMContentLoaded', observeAll);
+
+  // Topic filter pills — reads from DOM at click time so it works with dynamic content
   const pills = document.querySelectorAll('.topic-pill');
-  const cards = document.querySelectorAll('.article-card');
 
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-
       const topic = pill.dataset.topic;
-
-      cards.forEach(card => {
+      // Read cards at click time — captures dynamically loaded cards
+      document.querySelectorAll('.article-card').forEach(card => {
         if (!topic) {
           card.style.display = '';
         } else {
@@ -822,14 +788,79 @@
     });
   });
 
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  // Substack RSS feed
+  const THUMB_COLORS = ['t1','t2','t3','t4'];
+  const STAGGER = ['','stagger-1','stagger-2','stagger-3'];
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  async function loadSubstackArticles() {
+    const grid = document.getElementById('articles-grid');
+    const substackLink = document.getElementById('substack-link');
+    const RSS_URL = 'https://graysmithproperties.substack.com/feed';
+    const PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS_URL);
+
+    try {
+      const res = await fetch(PROXY);
+      const data = await res.json();
+
+      if (!data.items || data.items.length === 0) {
+        grid.innerHTML = '<div class="article-error">No articles found. <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener">View on Substack</a></div>';
+        substackLink.style.display = 'block';
+        return;
+      }
+
+      grid.innerHTML = '';
+
+      data.items.forEach(function(item, i) {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = item.description || '';
+        var excerpt = tmp.textContent.trim().slice(0, 160);
+        if (tmp.textContent.trim().length > 160) excerpt += '...';
+
+        var date = '';
+        if (item.pubDate) {
+          date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        }
+
+        var colorClass = THUMB_COLORS[i % THUMB_COLORS.length];
+        var staggerClass = STAGGER[i % STAGGER.length];
+
+        var card = document.createElement('a');
+        card.href = item.link;
+        card.target = '_blank';
+        card.rel = 'noopener';
+        card.className = 'article-card fade-up ' + staggerClass;
+        card.innerHTML =
+          '<div class="article-thumb ' + colorClass + '">' +
+            '<svg width="60" height="60" viewBox="0 0 60 60" fill="none">' +
+              '<path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>' +
+            '</svg>' +
+          '</div>' +
+          '<div class="article-content">' +
+            (date ? '<div class="article-topic">' + date + '</div>' : '') +
+            '<h3 class="article-title">' + item.title + '</h3>' +
+            '<p class="article-excerpt">' + excerpt + '</p>' +
+            '<span class="article-read">' +
+              'Read on Substack ' +
+              '<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</span>' +
+          '</div>';
+
+        grid.appendChild(card);
+      });
+
+      substackLink.style.display = 'block';
+
+      // Observe newly added cards
+      grid.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+    } catch (err) {
+      grid.innerHTML = '<div class="article-error">Couldn\'t load articles right now. <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener">Read on Substack</a></div>';
+      substackLink.style.display = 'block';
+    }
+  }
+
+  loadSubstackArticles();
+
 </script>
 
 </body>
