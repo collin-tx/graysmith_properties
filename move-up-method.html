@@ -8,6 +8,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script>
+    (function(w, d, t, h, s, n) {
+      w.FlodeskObject = n;
+      var fn = function() {
+        (w[n].q = w[n].q || []).push(arguments);
+      };
+      w[n] = w[n] || fn;
+      var f = d.getElementsByTagName(t)[0];
+      var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+      var sm = d.createElement(t);
+      sm.async = true;
+      sm.type = 'module';
+      sm.src = h + s + '.mjs' + v;
+      f.parentNode.insertBefore(sm, f);
+      var sn = d.createElement(t);
+      sn.async = true;
+      sn.noModule = true;
+      sn.src = h + s + '.js' + v;
+      f.parentNode.insertBefore(sn, f);
+    })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -544,6 +565,112 @@
     .stagger-3 { transition-delay: 0.3s; }
     .stagger-4 { transition-delay: 0.4s; }
 
+
+    /* ── FLODESK OVERRIDES ── */
+    #flodesk-modal .fd-form-container,
+    #flodesk-modal .fd-form {
+      background: var(--linen) !important;
+      border-radius: 8px !important;
+      font-family: var(--body) !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    #flodesk-modal .fd-form-title,
+    #flodesk-modal h1,
+    #flodesk-modal h2,
+    #flodesk-modal h3 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+      font-size: 1.5rem !important;
+      color: #2C2825 !important;
+      line-height: 1.3 !important;
+    }
+
+    #flodesk-modal input[type="text"],
+    #flodesk-modal input[type="email"] {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      color: #2C2825 !important;
+      background: #FFFFFF !important;
+      border: 1.5px solid #D4C4B0 !important;
+      border-radius: 4px !important;
+      padding: 0.85rem 1.15rem !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    #flodesk-modal input[type="text"]:focus,
+    #flodesk-modal input[type="email"]:focus {
+      border-color: #C4603A !important;
+    }
+
+    #flodesk-modal input::placeholder {
+      color: #2C2825 !important;
+      opacity: 0.35 !important;
+    }
+
+    #flodesk-modal button[type="submit"],
+    #flodesk-modal .fd-btn {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 500 !important;
+      background: #C4603A !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 4px !important;
+      padding: 0.9rem 2rem !important;
+      margin-top: 1rem !important;
+      cursor: pointer !important;
+      letter-spacing: 0.02em !important;
+      transition: background 0.25s !important;
+      text-transform: none !important;
+    }
+
+    #flodesk-modal button[type="submit"]:hover,
+    #flodesk-modal .fd-btn:hover {
+      background: #b35530 !important;
+    }
+
+    #flodesk-modal .fd-footer,
+    #flodesk-modal .fd-form-footer {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #2C2825 !important;
+      opacity: 0.4 !important;
+    }
+
+    #flodesk-modal .fd-success-headline,
+    #flodesk-modal .fd-success-message {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      color: #2C2825 !important;
+    }
+
+    #flodesk-modal .fd-form-title *,
+    #flodesk-modal h1 *,
+    #flodesk-modal h2 *,
+    #flodesk-modal h3 *,
+    #flodesk-modal [class*="title"] * {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+    }
+
+    #flodesk-modal strong,
+    #flodesk-modal b {
+      font-weight: 400 !important;
+    }
+
+    #flodesk-modal input[type="text"]:not(:focus):not([value=""]),
+    #flodesk-modal input[type="email"]:not(:focus):not([value=""]) {
+      color: rgba(44, 40, 37, 0.35) !important;
+      font-size: 0.75rem !important;
+    }
+
+    #flodesk-modal input::placeholder {
+      color: transparent !important;
+      opacity: 0 !important;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -632,7 +759,7 @@
     <div class="eyebrow fade-up">The Move Up Method</div>
     <h1 class="fade-up stagger-1">Stop starting over.<br>Start <em>moving up.</em></h1>
     <p class="hero-sub fade-up stagger-2">Most people treat every home purchase like it's their first, scrambling for a down payment, starting from scratch. The Move Up Method is a different approach. It's how you use what you already have to get to where you want to be, and keep going from there.</p>
-    <a href="#join" class="btn-primary fade-up stagger-3">
+    <a href="#" onclick="document.getElementById('flodesk-modal').style.display='flex'; return false;" class="btn-primary">
       Download the free guide
       <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -720,7 +847,7 @@
     <h2 class="fade-up stagger-1">Ready to see where you stand?</h2>
     <p class="fade-up stagger-2">Download the free Move Up Method guide and get the full breakdown, including how to calculate your equity, what to look for in your next neighborhood, and how to time your move without losing sleep over it.</p>
     <div class="bottom-cta-buttons fade-up stagger-3">
-      <a href="#join" class="btn-primary">
+      <a href="#" onclick="document.getElementById('flodesk-modal').style.display='flex'; return false;" class="btn-primary">
         Get the free guide
         <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -759,7 +886,7 @@
       <ul>
         <li><a href="/contact">Contact</a></li>
         <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#a3d1c2c0cbc2c6cfe3c4d1c2dad0cecad7cbd3d1ccd3c6d1d7cac6d08dc0ccce">Email</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -767,6 +894,7 @@
       <ul>
         <li><a href="/resources">Free Guides</a></li>
         <li><a href="/quiz">Move Up Quiz</a></li>
+        <li><a href="/neighborhood-quiz">Neighborhood Quiz</a></li>
         <li><a href="/contact">Book a Call</a></li>
         <li><a href="/privacy">Privacy Policy</a></li>
       </ul>
@@ -784,7 +912,7 @@
 </footer>
 
 <!-- ════════════════ SCRIPTS ════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Mobile nav toggle
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -810,7 +938,24 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.getElementById('flodesk-modal').style.display = 'none';
+  });
 </script>
 
+  <!-- ════════════════ FLODESK MODAL ════════════════ -->
+  <div id="flodesk-modal" style="display:none; position:fixed; inset:0; background:rgba(44,40,37,0.6); backdrop-filter:blur(4px); z-index:200; align-items:center; justify-content:center; padding:2rem;">
+    <div style="background:#FFFFFF; border-radius:10px; padding:2.5rem; max-width:480px; width:100%; position:relative;">
+      <button onclick="document.getElementById('flodesk-modal').style.display='none';" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; font-size:1.25rem; opacity:0.4; line-height:1;">&#x2715;</button>
+      <div id="fd-form-69e918e2e212a3809d5daee8"></div>
+      <script>
+        window.fd('form', {
+          formId: '69e918e2e212a3809d5daee8',
+          containerEl: '#fd-form-69e918e2e212a3809d5daee8'
+        });
+      </script>
+    </div>
+  </div>
 </body>
 </html>

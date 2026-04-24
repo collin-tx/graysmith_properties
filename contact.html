@@ -430,6 +430,31 @@
     .stagger-2 { transition-delay: 0.2s; }
     .stagger-3 { transition-delay: 0.3s; }
 
+    /* ── COPY TOAST ── */
+    .copy-toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--espresso);
+      color: var(--linen);
+      padding: 0.85rem 1.5rem;
+      border-radius: 6px;
+      font-family: var(--body);
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 24px rgba(44, 40, 37, 0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 300;
+    }
+
+    .copy-toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -535,13 +560,13 @@
       </span>
     </a>
 
-    <a href="mailto:rachael@graysmithproperties.com" class="option-card fade-up stagger-2">
+    <a href="mailto:rachael@graysmithproperties.com" id="email-option" class="option-card fade-up stagger-2">
       <div class="option-icon mail">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="12" rx="2" stroke="#D4A96A" stroke-width="1.5"/><path d="M3 7l8 5 8-5" stroke="#D4A96A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div class="option-label">Email</div>
       <div class="option-desc">rachael@graysmithproperties.com</div>
-      <span class="option-link">
+      <span class="option-link" id="email-option-link">
         Send email
         <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
@@ -619,6 +644,9 @@
   </div>
 </footer>
 
+<!-- ════════════════ COPY TOAST ════════════════ -->
+<div class="copy-toast" id="copy-toast">Email copied to clipboard</div>
+
 <!-- ════════════════ SCRIPTS ════════════════ -->
 <script>
   // Mobile nav
@@ -634,6 +662,46 @@
     if (navLinks.classList.contains('open') && !navLinks.contains(e.target)) {
       navLinks.classList.remove('open');
     }
+  });
+
+  // Email card: copy to clipboard + fire mailto
+  const emailAddress = 'rachael@graysmithproperties.com';
+  const emailOption = document.getElementById('email-option');
+  const copyToast = document.getElementById('copy-toast');
+  let toastTimer = null;
+
+  function showToast(message) {
+    copyToast.textContent = message;
+    copyToast.classList.add('visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => copyToast.classList.remove('visible'), 2400);
+  }
+
+  emailOption.addEventListener('click', function(e) {
+    // Let the mailto attempt happen naturally (works on mobile / desktops with mail client)
+    // But also copy address to clipboard so desktop users without a mail client have the address
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(emailAddress).then(
+        () => showToast('Email copied: ' + emailAddress),
+        () => showToast('Email: ' + emailAddress)
+      );
+    } else {
+      // Fallback for older browsers
+      try {
+        const temp = document.createElement('textarea');
+        temp.value = emailAddress;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showToast('Email copied: ' + emailAddress);
+      } catch (err) {
+        showToast('Email: ' + emailAddress);
+      }
+    }
+    // Do NOT preventDefault — the mailto: still fires for users who have a mail client
   });
 
   // Scroll animations

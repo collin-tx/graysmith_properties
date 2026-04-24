@@ -334,6 +334,13 @@
       transform: translateY(-2px);
     }
 
+    .btn-download-secondary {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.75rem;
+      font-size: 0.7rem;
+    }
+
     .result-secondary {
       background: var(--white);
       border: 1.5px solid var(--sand);
@@ -855,6 +862,7 @@
           '<p class="secondary-label">Also Worth Exploring</p>' +
           '<p class="secondary-title">' + s.emoji + ' ' + s.title + '</p>' +
           '<p class="secondary-subtitle">' + s.subtitle + '</p>' +
+          '<a class="btn-download btn-download-secondary" href="' + s.pdf + '" download>Download Free Guide</a>' +
         '</div>';
     }
 

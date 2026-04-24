@@ -8,6 +8,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script>
+      (function(w, d, t, h, s, n) {
+        w.FlodeskObject = n;
+        var fn = function() {
+          (w[n].q = w[n].q || []).push(arguments);
+        };
+        w[n] = w[n] || fn;
+        var f = d.getElementsByTagName(t)[0];
+        var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+        var sm = d.createElement(t);
+        sm.async = true;
+        sm.type = 'module';
+        sm.src = h + s + '.mjs' + v;
+        f.parentNode.insertBefore(sm, f);
+        var sn = d.createElement(t);
+        sn.async = true;
+        sn.noModule = true;
+        sn.src = h + s + '.js' + v;
+        f.parentNode.insertBefore(sn, f);
+      })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+    </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -323,6 +344,99 @@
       color: var(--espresso);
     }
 
+    /* ── FLODESK INLINE OVERRIDES (quiz result screen) ── */
+    .flodesk-inline .fd-form-container,
+    .flodesk-inline .fd-form {
+      background: transparent !important;
+      border-radius: 0 !important;
+      font-family: var(--body) !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      max-width: 100% !important;
+    }
+
+    /* Hide the empty title/subtitle area Flodesk renders when no header text is configured */
+    .flodesk-inline .fd-form-title,
+    .flodesk-inline .fd-form-subtitle,
+    .flodesk-inline [class*="ff-616"],
+    .flodesk-inline [class*="title"],
+    .flodesk-inline [class*="subtitle"],
+    .flodesk-inline [class*="heading"],
+    .flodesk-inline .fd-form-content > *:first-child:empty,
+    .flodesk-inline .fd-form-content > div:first-child:not(:has(input)):not(:has(button)) {
+      display: none !important;
+    }
+
+    /* Inputs — match site design system */
+    .flodesk-inline input[type="text"],
+    .flodesk-inline input[type="email"] {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      color: #2C2825 !important;
+      background: #FFFFFF !important;
+      border: 1.5px solid #D4C4B0 !important;
+      border-radius: 4px !important;
+      padding: 0.85rem 1.15rem !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .flodesk-inline input[type="text"]:focus,
+    .flodesk-inline input[type="email"]:focus {
+      border-color: #C4603A !important;
+    }
+
+    .flodesk-inline input::placeholder {
+      color: #2C2825 !important;
+      opacity: 0.35 !important;
+    }
+
+    /* Submit button — match site terracotta CTA */
+    .flodesk-inline button[type="submit"],
+    .flodesk-inline .fd-btn {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 500 !important;
+      background: #C4603A !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 4px !important;
+      padding: 0.9rem 2rem !important;
+      margin-top: 1rem !important;
+      cursor: pointer !important;
+      letter-spacing: 0.02em !important;
+      transition: background 0.25s !important;
+      text-transform: none !important;
+    }
+
+    .flodesk-inline button[type="submit"]:hover,
+    .flodesk-inline .fd-btn:hover {
+      background: #b35530 !important;
+    }
+
+    /* Footer / fine print */
+    .flodesk-inline .fd-footer,
+    .flodesk-inline .fd-form-footer {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #2C2825 !important;
+      opacity: 0.4 !important;
+    }
+
+    /* Success state */
+    .flodesk-inline .fd-success-headline,
+    .flodesk-inline .fd-success-message {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      color: #2C2825 !important;
+    }
+
+    /* Collapse any empty leading blocks — targets the blank space above inputs */
+    .flodesk-inline .fd-form-content,
+    .flodesk-inline form {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+
     /* ── FOOTER ── */
     .footer {
       background: var(--espresso);
@@ -539,40 +653,28 @@
         <div class="flodesk-wrap">
           <p class="flodesk-intro" id="flodesk-intro"></p>
 
-          <!--
-          ═══════════════════════════════════════════════════════════════
-          HOW TO ADD YOUR FLODESK FORMS:
-
-          1. In Flodesk > Forms > Create Form > Inline
-          2. Create one form tagged "ftb" (first-time buyers)
-             and one tagged "owner" (current homeowners)
-          3. Click Share > Copy embed code
-          4. Paste each embed code inside the matching div below
-          5. Delete the placeholder div inside each one
-
-          The quiz automatically shows the right form based on
-          the visitor's answers. You only need to publish once.
-          ═══════════════════════════════════════════════════════════════
-          -->
-
+          <!-- Flodesk stuff -->
           <!-- Shown to renters + unsure visitors -->
-          <div id="form-ftb" style="display:none;">
-            <!-- PASTE YOUR FLODESK "ftb" EMBED CODE HERE -->
-            <div class="flodesk-placeholder">
-              <p>Paste your Flodesk <strong>first-time buyer</strong> form embed code here.<br>
-              Tag to apply in Flodesk: <code>ftb</code></p>
-            </div>
+          <div id="form-ftb" class="flodesk-inline" style="display:none;">
+            <div id="fd-form-69e8fbcd1df4a0c09518fd7c"></div>
+            <script>
+                window.fd('form', {
+                    formId: '69e8fbcd1df4a0c09518fd7c',
+                    containerEl: '#fd-form-69e8fbcd1df4a0c09518fd7c'
+                });
+            </script>
           </div>
 
           <!-- Shown to current homeowners -->
-          <div id="form-owner" style="display:none;">
-            <!-- PASTE YOUR FLODESK "owner" EMBED CODE HERE -->
-            <div class="flodesk-placeholder">
-              <p>Paste your Flodesk <strong>homeowner</strong> form embed code here.<br>
-              Tag to apply in Flodesk: <code>owner</code></p>
-            </div>
+          <div id="form-owner" class="flodesk-inline" style="display:none;">
+            <div id="fd-form-69e912d04f8a4f1b5937bc61"></div>
+            <script>
+                window.fd('form', {
+                    formId: '69e912d04f8a4f1b5937bc61',
+                    containerEl: '#fd-form-69e912d04f8a4f1b5937bc61'
+                });
+            </script>
           </div>
-
         </div>
       </div>
     </div>

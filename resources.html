@@ -8,6 +8,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script>
+    (function(w, d, t, h, s, n) {
+      w.FlodeskObject = n;
+      var fn = function() {
+        (w[n].q = w[n].q || []).push(arguments);
+      };
+      w[n] = w[n] || fn;
+      var f = d.getElementsByTagName(t)[0];
+      var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+      var sm = d.createElement(t);
+      sm.async = true;
+      sm.type = 'module';
+      sm.src = h + s + '.mjs' + v;
+      f.parentNode.insertBefore(sm, f);
+      var sn = d.createElement(t);
+      sn.async = true;
+      sn.noModule = true;
+      sn.src = h + s + '.js' + v;
+      f.parentNode.insertBefore(sn, f);
+    })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -289,6 +310,8 @@
       cursor: pointer;
       white-space: nowrap;
       transition: background 0.25s, transform 0.2s;
+      text-decoration: none;
+      display: inline-flex;
     }
 
     .resource-download:hover {
@@ -299,123 +322,6 @@
     a.resource-card-link {
       text-decoration: none;
       color: var(--espresso);
-    }
-
-    /* ── MODAL ── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(44, 40, 37, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal {
-      background: var(--white);
-      border-radius: 10px;
-      padding: 3rem;
-      max-width: 440px;
-      width: 100%;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s;
-    }
-
-    .modal-overlay.active .modal {
-      transform: translateY(0);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--espresso);
-      opacity: 0.35;
-      transition: opacity 0.2s;
-      padding: 0.25rem;
-    }
-
-    .modal-close:hover { opacity: 0.7; }
-
-    .modal h3 {
-      font-family: var(--heading);
-      font-size: 1.5rem;
-      font-weight: 400;
-      line-height: 1.3;
-      color: var(--espresso);
-      margin-bottom: 0.5rem;
-    }
-
-    .modal-subtext {
-      font-size: 0.9rem;
-      opacity: 0.6;
-      line-height: 1.65;
-      margin-bottom: 2rem;
-    }
-
-    .modal-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .modal-input {
-      padding: 0.85rem 1.15rem;
-      border: 1.5px solid #e0d9cf;
-      border-radius: 4px;
-      font-family: var(--body);
-      font-size: 0.9rem;
-      color: var(--espresso);
-      background: var(--linen);
-      outline: none;
-      transition: border-color 0.25s;
-    }
-
-    .modal-input:focus {
-      border-color: var(--terracotta);
-    }
-
-    .modal-input::placeholder {
-      color: var(--espresso);
-      opacity: 0.35;
-    }
-
-    .modal-submit {
-      background: var(--terracotta);
-      color: var(--white);
-      font-family: var(--body);
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 0.9rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.25s;
-      margin-top: 0.25rem;
-    }
-
-    .modal-submit:hover { background: #b35530; }
-
-    .modal-fine {
-      font-size: 0.75rem;
-      opacity: 0.4;
-      text-align: center;
-      margin-top: 0.75rem;
     }
 
     /* ── FOOTER ── */
@@ -506,6 +412,114 @@
     .stagger-3 { transition-delay: 0.3s; }
     .stagger-4 { transition-delay: 0.4s; }
     .stagger-5 { transition-delay: 0.5s; }
+
+
+
+
+    /* ── FLODESK OVERRIDES ── */
+    #flodesk-modal .fd-form-container,
+    #flodesk-modal .fd-form {
+      background: var(--linen) !important;
+      border-radius: 8px !important;
+      font-family: var(--body) !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    #flodesk-modal .fd-form-title,
+    #flodesk-modal h1,
+    #flodesk-modal h2,
+    #flodesk-modal h3 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+      font-size: 1.5rem !important;
+      color: #2C2825 !important;
+      line-height: 1.3 !important;
+    }
+
+    #flodesk-modal input[type="text"],
+    #flodesk-modal input[type="email"] {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      color: #2C2825 !important;
+      background: #FFFFFF !important;
+      border: 1.5px solid #D4C4B0 !important;
+      border-radius: 4px !important;
+      padding: 0.85rem 1.15rem !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    #flodesk-modal input[type="text"]:focus,
+    #flodesk-modal input[type="email"]:focus {
+      border-color: #C4603A !important;
+    }
+
+    #flodesk-modal input::placeholder {
+      color: #2C2825 !important;
+      opacity: 0.35 !important;
+    }
+
+    #flodesk-modal button[type="submit"],
+    #flodesk-modal .fd-btn {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 500 !important;
+      background: #C4603A !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 4px !important;
+      padding: 0.9rem 2rem !important;
+      margin-top: 1rem !important;
+      cursor: pointer !important;
+      letter-spacing: 0.02em !important;
+      transition: background 0.25s !important;
+      text-transform: none !important;
+    }
+
+    #flodesk-modal button[type="submit"]:hover,
+    #flodesk-modal .fd-btn:hover {
+      background: #b35530 !important;
+    }
+
+    #flodesk-modal .fd-footer,
+    #flodesk-modal .fd-form-footer {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #2C2825 !important;
+      opacity: 0.4 !important;
+    }
+
+    #flodesk-modal .fd-success-headline,
+    #flodesk-modal .fd-success-message {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      color: #2C2825 !important;
+    }
+
+    #flodesk-modal .fd-form-title *,
+    #flodesk-modal h1 *,
+    #flodesk-modal h2 *,
+    #flodesk-modal h3 *,
+    #flodesk-modal [class*="title"] * {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+    }
+
+    #flodesk-modal strong,
+    #flodesk-modal b {
+      font-weight: 400 !important;
+    }
+    
+    #flodesk-modal input[type="text"]:not(:focus):not([value=""]),
+    #flodesk-modal input[type="email"]:not(:focus):not([value=""]) {
+      color: rgba(44, 40, 37, 0.35) !important;
+      font-size: 0.75rem !important;
+    }
+
+    #flodesk-modal input::placeholder {
+      color: transparent !important;
+      opacity: 0 !important;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -602,10 +616,10 @@
         <h3 class="resource-title">The Move Up Method: your step-by-step guide.</h3>
         <p class="resource-tagline">The playbook nobody hands you at closing.</p>
       </div>
-      <button class="resource-download" data-resource="The Move Up Method Guide">
-        Download free
+      <a href="#" onclick="document.getElementById('flodesk-modal').style.display='flex'; return false;" class="resource-download" style="text-decoration:none;">
+        Send me the guide
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      </a>
     </div>
 
     <!-- Neighborhood Quiz -->
@@ -623,23 +637,6 @@
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
     </a>
-
-    <!-- Resource 03 -->
-     <!-- removing neighborhood guide for now as this is accessible via quiz -->
-    <!-- <div class="resource-card fade-up stagger-2">
-      <div>
-        <div class="resource-meta">
-          <span class="resource-type">PDF Guide</span>
-          <span class="resource-number">03</span>
-        </div>
-        <h3 class="resource-title">Dallas neighborhood guide for move-up buyers.</h3>
-        <p class="resource-tagline">The Dallas neighborhood guide no one else will give you.</p>
-      </div>
-      <button class="resource-download" data-resource="Dallas Neighborhood Guide">
-        Download free
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 3v8M4 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div> -->
 
     <!-- Move Up Quiz -->
     <a href="/quiz" class="resource-card resource-card-link fade-up stagger-3">
@@ -659,24 +656,6 @@
 
   </div>
 </section>
-
-<!-- ════════════════ SIGNUP MODAL ════════════════ -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" id="modalClose" aria-label="Close">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </button>
-    <h3>Almost there. Where should we send it?</h3>
-    <p class="modal-subtext">Drop your name and email and we'll get it right to you. You'll also get occasional real talk about Dallas real estate. Unsubscribe anytime.</p>
-    <form class="modal-form" id="modalForm">
-      <input type="text" class="modal-input" placeholder="First name" required>
-      <input type="email" class="modal-input" placeholder="Email address" required>
-      <input type="hidden" id="resourceName" value="">
-      <button type="submit" class="modal-submit">Send me the guide</button>
-    </form>
-    <p class="modal-fine">No spam. No hype. Unsubscribe anytime.</p>
-  </div>
-</div>
 
 <!-- ════════════════ FOOTER ════════════════ -->
 <footer class="footer">
@@ -706,7 +685,7 @@
       <ul>
         <li><a href="/contact">Contact</a></li>
         <li><a href="https://instagram.com/rachael.graysmith" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#4e3c2f2d262f2b220e293c2f373d23273a263e3c213e2b3c3a272b3d602d2123">Email</a></li>
+        <li><a href="mailto:rachael@graysmithproperties.com">Email</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -732,7 +711,8 @@
 </footer>
 
 <!-- ════════════════ SCRIPTS ════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<!-- -->
+<script>
   // Mobile nav
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -748,39 +728,34 @@
     }
   });
 
-  // Modal
-  const modal = document.getElementById('modal');
-  const modalClose = document.getElementById('modalClose');
-  const modalForm = document.getElementById('modalForm');
-  const resourceInput = document.getElementById('resourceName');
-
-  document.querySelectorAll('.resource-download').forEach(btn => {
-    btn.addEventListener('click', () => {
-      resourceInput.value = btn.dataset.resource;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('flodesk-modal');
+    if (!modal) return;
+  
+    function fixPlaceholders() {
+      modal.querySelectorAll('input').forEach(function(input) {
+        var ph = input.getAttribute('placeholder') || '';
+        if (ph && ph.indexOf(' ') === -1 && ph.length > 8) {
+          if (input.type === 'email') {
+            input.setAttribute('placeholder', 'Email address');
+          } else {
+            input.setAttribute('placeholder', 'First name');
+          }
+        }
+      });
+    }
+  
+    new MutationObserver(fixPlaceholders).observe(modal, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['placeholder']
     });
   });
 
-  function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  modalClose.addEventListener('click', closeModal);
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
+  // Modal (Flodesk) ESC to close
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  modalForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Connect to email platform (Flodesk, ConvertKit, etc.)
-    closeModal();
+    if (e.key === 'Escape') document.getElementById('flodesk-modal').style.display = 'none';
   });
 
   // Scroll animations
@@ -791,7 +766,22 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
 </script>
 
+
+  <!-- ════════════════ FLODESK MODAL ════════════════ -->
+  <div id="flodesk-modal" style="display:none; position:fixed; inset:0; background:rgba(44,40,37,0.6); backdrop-filter:blur(4px); z-index:200; align-items:center; justify-content:center; padding:2rem;">
+    <div style="background:#FFFFFF; border-radius:10px; padding:2.5rem; max-width:480px; width:100%; position:relative;">
+      <button onclick="document.getElementById('flodesk-modal').style.display='none';" style="position:absolute; top:1rem; right:1rem; background:none; border:none; cursor:pointer; font-size:1.25rem; opacity:0.4; line-height:1;">&#x2715;</button>
+      <div id="fd-form-69e918e2e212a3809d5daee8"></div>
+      <script>
+        window.fd('form', {
+          formId: '69e918e2e212a3809d5daee8',
+          containerEl: '#fd-form-69e918e2e212a3809d5daee8'
+        });
+      </script>
+    </div>
+  </div>
 </body>
 </html>
