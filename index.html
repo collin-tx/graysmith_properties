@@ -4,6 +4,13 @@
   <link rel="icon" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5WD8Z2S2');</script>
+  <!-- End Google Tag Manager -->
   <title>Rachael Gray Smith | Dallas Move-Up Real Estate | Graysmith Properties</title>
   <meta name="description" content="Rachael Gray Smith is a Dallas Realtor helping millennials build real estate wealth through the Move Up Method. Free guides, resources, and straight talk about the Dallas market.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -401,52 +408,6 @@
       background: var(--terracotta);
     }
 
-    /* ── CREDIBILITY ── */
-    .credibility { background: var(--espresso); color: var(--linen); }
-
-    .credibility .eyebrow { color: var(--gold); }
-
-    .credibility .section-heading { color: var(--linen); }
-
-    .credibility .section-body { color: var(--linen); opacity: 0.75; }
-
-    .cred-stats {
-      display: flex;
-      gap: 3rem;
-      margin-top: 2rem;
-      padding-bottom: 0.5rem;
-    }
-
-    .cred-stat {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cred-stat-num {
-      font-family: var(--heading);
-      font-size: 2.5rem;
-      font-weight: 400;
-      color: var(--terracotta);
-      line-height: 1;
-    }
-
-    .cred-stat-label {
-      font-size: 0.85rem;
-      opacity: 0.6;
-      margin-top: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .credibility .btn-secondary {
-      color: var(--linen);
-      border-color: rgba(245, 239, 230, 0.3);
-      margin-top: 2.5rem;
-    }
-
-    .credibility .btn-secondary:hover {
-      background: var(--linen);
-      color: var(--espresso);
-    }
 
     /* ── EMAIL CTA ── */
     .email-cta {
@@ -713,8 +674,269 @@
       opacity: 0 !important;
     }
 
+
+    /* ── HERO REBUILD (two-column with inline form) ── */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-form-card {
+      background: var(--espresso);
+      color: var(--linen);
+      border-radius: 12px;
+      padding: 2.5rem 2.25rem;
+      box-shadow: 0 24px 64px rgba(44, 40, 37, 0.14);
+      position: relative;
+    }
+
+    .hero-form-eyebrow {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero-form-headline {
+      font-family: var(--heading);
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--linen);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-form-sub {
+      font-family: var(--body);
+      font-size: 0.875rem;
+      color: var(--linen);
+      opacity: 0.7;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-form-fields input {
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--espresso);
+      background: var(--linen);
+      border: 1.5px solid transparent;
+      border-radius: 6px;
+      padding: 0.85rem 1.1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .hero-form-fields input::placeholder {
+      color: var(--espresso);
+      opacity: 0.45;
+    }
+
+    .hero-form-fields input:focus { border-color: var(--terracotta); }
+
+    .hero-form-submit {
+      width: 100%;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--linen);
+      background: var(--terracotta);
+      border: none;
+      border-radius: 6px;
+      padding: 0.95rem;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.25s;
+    }
+
+    .hero-form-submit:hover { background: #b35530; }
+    .hero-form-submit:disabled { opacity: 0.6; cursor: progress; }
+
+    .hero-form-fine {
+      font-family: var(--body);
+      font-size: 0.72rem;
+      color: var(--linen);
+      opacity: 0.4;
+      text-align: center;
+      margin-top: 0.85rem;
+    }
+
+    .hero-form-secondary {
+      display: block;
+      margin-top: 1.5rem;
+      text-align: center;
+      font-family: var(--body);
+      font-size: 0.85rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .hero-form-secondary:hover { opacity: 0.75; }
+
+    /* ── MEET RACHAEL ── */
+    .meet-rachael {
+      background: var(--linen);
+      padding: 100px 2rem;
+    }
+
+    .meet-rachael-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .meet-photo {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(44, 40, 37, 0.12);
+    }
+
+    .meet-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .meet-content .eyebrow { color: var(--avocado); }
+
+    .meet-headline {
+      font-family: var(--heading);
+      font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--espresso);
+      margin-bottom: 1.5rem;
+    }
+
+    .meet-body {
+      font-family: var(--body);
+      font-size: 1rem;
+      color: var(--espresso);
+      opacity: 0.78;
+      line-height: 1.85;
+      margin-bottom: 2.25rem;
+    }
+
+    .meet-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 1.75rem 0;
+      border-top: 1px solid rgba(44, 40, 37, 0.12);
+      border-bottom: 1px solid rgba(44, 40, 37, 0.12);
+      margin-bottom: 2rem;
+    }
+
+    .meet-stat-num {
+      display: block;
+      font-family: var(--heading);
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .meet-stat-label {
+      display: block;
+      font-family: var(--body);
+      font-size: 0.78rem;
+      color: var(--espresso);
+      opacity: 0.65;
+      line-height: 1.45;
+    }
+
+    .meet-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--terracotta);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: gap 0.25s;
+    }
+
+    .meet-cta:hover { gap: 0.85rem; }
+
+    /* ── QUIZ CTA ── */
+    .quiz-cta {
+      background: var(--white);
+      padding: 80px 2rem;
+      text-align: center;
+    }
+
+    .quiz-cta-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .quiz-cta .eyebrow { color: var(--avocado); }
+
+    .quiz-cta-headline {
+      font-family: var(--heading);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--espresso);
+      margin-bottom: 1rem;
+    }
+
+    .quiz-cta-sub {
+      font-family: var(--body);
+      font-size: 1rem;
+      color: var(--espresso);
+      opacity: 0.7;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-form-card { max-width: 540px; margin: 0 auto; }
+      .hero-left { text-align: center; }
+      .hero-left .hero-eyebrow { justify-content: center; }
+      .hero h1 { margin-left: auto; margin-right: auto; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+
+      .meet-rachael-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 640px;
+      }
+      .meet-photo { max-width: 380px; margin: 0 auto; }
+      .meet-content { text-align: center; }
+      .meet-stats { max-width: 480px; margin-left: auto; margin-right: auto; margin-bottom: 2rem; }
+
       .nav-links { display: none; }
       .nav-toggle { display: block; }
 
@@ -740,11 +962,6 @@
         grid-template-columns: 1fr;
       }
 
-      .cred-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-
       .email-form {
         flex-direction: column;
       }
@@ -759,6 +976,13 @@
     }
 
     @media (max-width: 600px) {
+
+      .hero-form-card { padding: 2rem 1.5rem; }
+      .meet-rachael { padding: 64px 1.25rem; }
+      .meet-stats { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; padding: 1.25rem 0; }
+      .meet-stat-num { font-size: 1.75rem; }
+      .quiz-cta { padding: 64px 1.25rem; }
+
       section { padding: 64px 1.25rem; }
 
       .hero { padding: 100px 1.25rem 60px; }
@@ -771,6 +995,11 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WD8Z2S2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 
 <!-- ════════════════ NAVIGATION ════════════════ -->
 <nav class="nav">
@@ -805,21 +1034,32 @@
 <!-- ════════════════ HERO ════════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow fade-up">The Move Up Method</div>
-    <h1 class="fade-up stagger-1">What if your home was doing more than just <em>housing you?</em></h1>
-    <p class="hero-sub fade-up stagger-2">Dallas real estate guidance for millennials who are ready to stop guessing and start building wealth, one smart move at a time.</p>
-    <div class="hero-ctas fade-up stagger-3">
-      <a href="#" onclick="document.getElementById('flodesk-modal').style.display='flex'; return false;" class="btn-primary">
-        Get the free guide
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="/move-up-method" class="btn-secondary">See how it works</a>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow fade-up">Rachael Gray Smith · Dallas Real Estate Guide</div>
+        <h1 class="fade-up stagger-1">What if your home was doing more than just <em>housing you?</em></h1>
+        <p class="hero-sub fade-up stagger-2">Dallas real estate guidance for millennials who are ready to stop guessing and start building wealth, one smart move at a time.</p>
+      </div>
+      <div class="hero-right">
+        <form class="hero-form-card fade-up stagger-3" id="hero-signup-form">
+          <div class="hero-form-eyebrow">Free Guide</div>
+          <h3 class="hero-form-headline">Get the Move Up Method guide — free</h3>
+          <p class="hero-form-sub">The playbook nobody hands you at closing. Straight to your inbox.</p>
+          <div class="hero-form-fields">
+            <input type="text" name="firstName" id="hero-firstName" placeholder="First name" required autocomplete="given-name">
+            <input type="email" name="email" id="hero-email" placeholder="Email address" required autocomplete="email">
+          </div>
+          <button type="submit" class="hero-form-submit" id="hero-submit-btn">Send me the guide</button>
+          <p class="hero-form-fine">No spam. Unsubscribe anytime.</p>
+          <a href="#move-up-method-anchor" class="hero-form-secondary">See how it works ↓</a>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════ RIGHT PLACE ════════════════ -->
-<section class="right-place">
+<section class="right-place" id="move-up-method-anchor">
   <div class="section-inner">
     <div class="eyebrow fade-up">Who this is for</div>
     <h2 class="section-heading fade-up stagger-1">You're in the right place if...</h2>
@@ -840,28 +1080,46 @@
   </div>
 </section>
 
-<!-- ════════════════ CREDIBILITY ════════════════ -->
-<section class="credibility">
-  <div class="section-inner">
-    <div class="eyebrow fade-up">Meet Rachael</div>
-    <h2 class="section-heading fade-up stagger-1" style="max-width: 600px;">I don't just advise on this stuff. I do it.</h2>
-    <div class="cred-stats fade-up stagger-2">
-      <div class="cred-stat">
-        <span class="cred-stat-num">11</span>
-        <span class="cred-stat-label">Years in Dallas<br>real estate</span>
-      </div>
-      <div class="cred-stat">
-        <span class="cred-stat-num">3</span>
-        <span class="cred-stat-label">Investment strategies<br>done personally</span>
-      </div>
-      <div class="cred-stat">
-        <span class="cred-stat-num">1</span>
-        <span class="cred-stat-label">Method built<br>from all of it</span>
-      </div>
+<!-- ════════════════ MEET RACHAEL ════════════════ -->
+<section class="meet-rachael" id="meet-rachael">
+  <div class="meet-rachael-inner">
+    <div class="meet-photo fade-up">
+      <img src="/images/rachael-headshot.jpg" alt="Rachael Gray Smith, Dallas Realtor and creator of the Move Up Method" width="600" height="800">
     </div>
-    <p class="section-body fade-up stagger-3" style="margin-top: 2.5rem;">11 years in real estate. A DIY flip I lived through (literally). A duplex I house-hacked and still own as a rental. A wholesale deal flipped with a GC. And right now, a home in Lake Highlands I chose for the schools with a move-up already penciled in for a few years from now. I don't just advise on this stuff. I do it.</p>
-    <a href="/about" class="btn-secondary fade-up stagger-4" style="margin-top: 2rem;">
-      More about Rachael
+    <div class="meet-content">
+      <div class="eyebrow fade-up">Meet Rachael Gray Smith</div>
+      <h2 class="meet-headline fade-up stagger-1">Most Dallas millennials are one conversation away from a move they didn't know they were ready for.</h2>
+      <p class="meet-body fade-up stagger-2">The problem isn't the market. It's that nobody ever sat down and explained what you're actually sitting on — or what to do with it. I'm Rachael Gray Smith, a Dallas Realtor and creator of the Move Up Method. I have 11 years in the market and a personal track record that includes a live-in flip, a house hack I still own as a rental, and a wholesale deal flipped with a GC. I built the Move Up Method because I kept having the same conversation with smart people who had no idea they were already positioned to make a move.</p>
+      <div class="meet-stats fade-up stagger-3">
+        <div class="meet-stat">
+          <span class="meet-stat-num">11</span>
+          <span class="meet-stat-label">Years in Dallas real estate</span>
+        </div>
+        <div class="meet-stat">
+          <span class="meet-stat-num">3</span>
+          <span class="meet-stat-label">Investment strategies done personally</span>
+        </div>
+        <div class="meet-stat">
+          <span class="meet-stat-num">1</span>
+          <span class="meet-stat-label">Method built from all of it</span>
+        </div>
+      </div>
+      <a href="/about" class="meet-cta fade-up stagger-4">
+        More about Rachael
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ QUIZ CTA ════════════════ -->
+<section class="quiz-cta">
+  <div class="quiz-cta-inner">
+    <div class="eyebrow fade-up">Find your path</div>
+    <h2 class="quiz-cta-headline fade-up stagger-1">Not sure where you stand? Take the quiz.</h2>
+    <p class="quiz-cta-sub fade-up stagger-2">Three questions. Tells you exactly where you are in the move-up journey and what to do next.</p>
+    <a href="/quiz" class="btn-primary fade-up stagger-3">
+      Find your path
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
@@ -1117,6 +1375,124 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') document.getElementById('flodesk-modal').style.display = 'none';
   });
+</script>
+
+  
+<script>
+  // Hero inline form → open Flodesk modal, pre-fill name + email
+  (function() {
+    var form = document.getElementById('hero-signup-form');
+    if (!form) return;
+
+    var submitBtn = document.getElementById('hero-submit-btn');
+    var nameInput = document.getElementById('hero-firstName');
+    var emailInput = document.getElementById('hero-email');
+
+    function setFlodeskField(input, value) {
+      if (!input) return;
+      try {
+        var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+        setter.call(input, value);
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      } catch (err) {
+        try { input.value = value; } catch (e2) {}
+      }
+    }
+
+    function tryPrefill(modal, name, email) {
+      if (!modal) return false;
+      var allInputs = modal.querySelectorAll('input');
+      if (allInputs.length === 0) return false;
+
+      // Filter to only VISIBLE inputs. Flodesk renders honeypot fields (hidden via CSS)
+      // to defeat bot spam — they have garbage names that match the real fields, so we
+      // can't classify by attribute alone. Visibility is the reliable signal.
+      var visibleInputs = [];
+      allInputs.forEach(function(i) {
+        var rect = i.getBoundingClientRect();
+        var isVisible = i.offsetParent !== null && rect.width > 0 && rect.height > 0;
+        var isHidden = i.type === 'hidden';
+        if (isVisible && !isHidden) {
+          visibleInputs.push(i);
+        }
+      });
+
+      if (visibleInputs.length === 0) return false;
+
+      // Sort by vertical position (top to bottom) so we know which is name vs email.
+      visibleInputs.sort(function(a, b) {
+        return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+      });
+
+      // Flodesk Name + Email form: name appears first, email second.
+      // Email-only forms: single visible input is the email field.
+      var nameField, emailField;
+      if (visibleInputs.length >= 2) {
+        nameField = visibleInputs[0];
+        emailField = visibleInputs[1];
+      } else {
+        emailField = visibleInputs[0];
+        nameField = null;
+      }
+
+      if (emailField) setFlodeskField(emailField, email);
+      if (nameField) setFlodeskField(nameField, name);
+
+      return !!(emailField || nameField);
+    }
+
+    function forceOpenModal() {
+      var modal = document.getElementById('flodesk-modal');
+      if (!modal) {
+        console.error('[hero-form] Modal element #flodesk-modal not found in DOM.');
+        return null;
+      }
+      // Force visibility with high priority to bypass any CSS specificity issues.
+      modal.style.setProperty('display', 'flex', 'important');
+      modal.style.setProperty('z-index', '9999', 'important');
+      return modal;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      var name = (nameInput && nameInput.value || '').trim();
+      var email = (emailInput && emailInput.value || '').trim();
+      if (!email) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Opening guide signup...';
+
+      var modal = forceOpenModal();
+      if (!modal) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send me the guide';
+        alert('Unable to open signup. Please email rachael@graysmithproperties.com directly.');
+        return;
+      }
+
+      // Try immediately, then poll for up to 2.5s if Flodesk hasn't rendered yet.
+      if (!tryPrefill(modal, name, email)) {
+        var attempts = 0;
+        var iv = setInterval(function() {
+          attempts++;
+          if (tryPrefill(modal, name, email) || attempts > 25) {
+            clearInterval(iv);
+          }
+        }, 100);
+      }
+
+      // Reset hero form state so they can try again if modal closes.
+      setTimeout(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send me the guide';
+      }, 800);
+
+      return false;
+    });
+  })();
 </script>
 
   <!-- ════════════════ FLODESK MODAL ════════════════ -->

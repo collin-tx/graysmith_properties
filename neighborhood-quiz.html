@@ -4,6 +4,13 @@
   <link rel="icon" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5WD8Z2S2');</script>
+  <!-- End Google Tag Manager -->
   <title>Find Your Dallas Neighborhood | Graysmith Properties</title>
   <meta name="description" content="Answer 7 quick questions and get matched with your ideal Dallas neighborhood, complete with a free guide covering vibes, schools, and hotspots.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -516,6 +523,11 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WD8Z2S2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 
 <!-- ════════════════ NAVIGATION ════════════════ -->
 <nav class="nav">
@@ -875,6 +887,15 @@
       '</div>';
 
     rs.innerHTML = html;
+
+    // GTM event — fires when neighborhood quiz completes and result is shown.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'quiz_completed',
+      quiz_type: 'neighborhood',
+      quiz_primary_match: primary,
+      quiz_secondary_match: secondary || null
+    });
   }
 
   function downloadGuide(path, title) {
