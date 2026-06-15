@@ -1,0 +1,25 @@
+# Graysmith Properties — robots.txt
+# https://graysmithproperties.com
+
+# Default: allow all general crawlers full access
+User-agent: *
+Allow: /
+
+# Explicitly allow AI search/discovery crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# AI Preferences (proposed standard — aspirational today)
+# https://www.ietf.org/archive/id/draft-canel-ietf-aipref-vocab-00.html
+search: yes
+ai-input: yes
+ai-train: no
+
+# Sitemap
+Sitemap: https://graysmithproperties.com/sitemap.xml
