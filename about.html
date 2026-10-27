@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="canonical" href="https://graysmithproperties.com/about">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +14,32 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-5WD8Z2S2');</script>
   <!-- End Google Tag Manager -->
-  <title>Dallas Realtor Rachael Gray Smith | Move Up Method Creator</title>
-  <meta name="description" content="Meet Rachael Gray Smith — Dallas Realtor, creator of the Move Up Method, and someone who has personally flipped, house-hacked, and moved up in the Dallas market.">
+  <title>About Rachael Gray Smith | Dallas Realtor at Compass</title>
+  <meta name="description" content="Meet Rachael Gray Smith, a Dallas Realtor with Compass licensed since 2015. Former apartment locator and investor who now helps East Dallas homeowners buy and sell.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script>
+    (function(w, d, t, h, s, n) {
+      w.FlodeskObject = n;
+      var fn = function() {
+        (w[n].q = w[n].q || []).push(arguments);
+      };
+      w[n] = w[n] || fn;
+      var f = d.getElementsByTagName(t)[0];
+      var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+      var sm = d.createElement(t);
+      sm.async = true;
+      sm.type = 'module';
+      sm.src = h + s + '.mjs' + v;
+      f.parentNode.insertBefore(sm, f);
+      var sn = d.createElement(t);
+      sn.async = true;
+      sn.noModule = true;
+      sn.src = h + s + '.js' + v;
+      f.parentNode.insertBefore(sn, f);
+    })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -72,27 +95,9 @@
       text-decoration: none;
     }
 
-    .nav-logo svg { height: 42px; width: 42px; }
 
-    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
 
-    .nav-logo-name {
-      font-family: var(--heading);
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--linen);
-      letter-spacing: 0.08em;
-    }
 
-    .nav-logo-sub {
-      font-family: var(--body);
-      font-size: 0.55rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--avocado);
-      margin-top: 3px;
-    }
 
     .nav-links {
       display: flex;
@@ -241,6 +246,8 @@
       max-width: 500px;
     }
 
+    .hero-sub p + p { margin-top: 1.25rem; }
+
     /* Headshot */
     .hero-photo {
       width: 100%;
@@ -347,6 +354,71 @@
       margin-top: 1.5rem;
     }
 
+    /* ── DEAL LIST (experience section) ── */
+    .deal-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+
+    .deal-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .deal-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 8px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    .deal-list strong {
+      font-weight: 500;
+      color: var(--espresso);
+    }
+
+    /* ── APPROACH LIST (numbered) ── */
+    .approach-list {
+      list-style: none;
+      counter-reset: approach;
+      margin: 0;
+      padding: 0;
+    }
+
+    .approach-list li {
+      counter-increment: approach;
+      position: relative;
+      padding-left: 2.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .approach-list li::before {
+      content: counter(approach);
+      position: absolute;
+      left: 0;
+      top: -0.15em;
+      font-family: var(--heading);
+      font-size: 1.5rem;
+      color: var(--terracotta);
+      line-height: 1.3;
+    }
+
+    .approach-list h3 {
+      font-family: var(--heading);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--espresso);
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+    }
+
+    .approach-cta { margin-top: 0.75rem; }
+
     /* ── PERSONAL / FUN FACTS ── */
     .personal-section {
       background: var(--avocado);
@@ -444,6 +516,157 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
+    /* ── BRAND LOCKUPS (nav wordmark + footer GRG logo) ── */
+    .nav-wordmark {
+      font-family: var(--heading);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-cta { white-space: nowrap; }
+
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .nav-cta { padding: 0.55rem 0.9rem; }
+    }
+
+    .footer-logo {
+      display: inline-block;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .footer-logo img {
+      width: 190px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
+    }
+
+    .footer-logo-sub {
+      display: block;
+      margin-top: 0.6rem;
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .footer-contact { margin-bottom: 0.45rem; }
+
+    /* ── FLODESK OVERRIDES ── */
+    #flodesk-modal .fd-form-container,
+    #flodesk-modal .fd-form {
+      background: var(--linen) !important;
+      border-radius: 8px !important;
+      font-family: var(--body) !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    #flodesk-modal .fd-form-title,
+    #flodesk-modal h1,
+    #flodesk-modal h2,
+    #flodesk-modal h3 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+      font-size: 1.5rem !important;
+      color: #2C2825 !important;
+      line-height: 1.3 !important;
+    }
+
+    #flodesk-modal input[type="text"],
+    #flodesk-modal input[type="email"] {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      color: #2C2825 !important;
+      background: #FFFFFF !important;
+      border: 1.5px solid #D4C4B0 !important;
+      border-radius: 4px !important;
+      padding: 0.85rem 1.15rem !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    #flodesk-modal input[type="text"]:focus,
+    #flodesk-modal input[type="email"]:focus {
+      border-color: #C4603A !important;
+    }
+
+    /* Flodesk ships an obfuscated placeholder (e.g. placeholder="RFU1TUNwb3ND") on the
+       real input and paints its own visible label over it. Showing the native placeholder
+       doubles the text, so hide it — the Flodesk label is the one meant to be read. */
+    #flodesk-modal input::placeholder {
+      color: transparent !important;
+      opacity: 0 !important;
+    }
+
+    #flodesk-modal input::-webkit-input-placeholder {
+      color: transparent !important;
+      opacity: 0 !important;
+    }
+
+    #flodesk-modal button[type="submit"],
+    #flodesk-modal .fd-btn {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 500 !important;
+      background: #C4603A !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 4px !important;
+      padding: 0.9rem 2rem !important;
+      margin-top: 1rem !important;
+      cursor: pointer !important;
+      letter-spacing: 0.02em !important;
+      transition: background 0.25s !important;
+      text-transform: none !important;
+    }
+
+    #flodesk-modal button[type="submit"]:hover,
+    #flodesk-modal .fd-btn:hover {
+      background: #b35530 !important;
+    }
+
+    #flodesk-modal .fd-footer,
+    #flodesk-modal .fd-form-footer {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #2C2825 !important;
+      opacity: 0.4 !important;
+    }
+
+    #flodesk-modal .fd-success-headline,
+    #flodesk-modal .fd-success-message {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      color: #2C2825 !important;
+    }
+
+    #flodesk-modal .fd-form-title *,
+    #flodesk-modal h1 *,
+    #flodesk-modal h2 *,
+    #flodesk-modal h3 *,
+    #flodesk-modal [class*="title"] * {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+    }
+
+    #flodesk-modal strong,
+    #flodesk-modal b {
+      font-weight: 400 !important;
+    }
+
+
+
+
 
     /* ── FOOTER ── */
     .footer {
@@ -596,6 +819,99 @@
       .footer-inner { grid-template-columns: 1fr; }
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Rachael Gray Smith",
+  "jobTitle": "REALTOR® and Broker Associate",
+  "description": "Dallas Realtor with Compass since 2015 helping homeowners buy and sell in Lakewood, Lake Highlands and East Dallas, plus North Dallas, Richardson and Plano. Also works with first-time real estate investors.",
+  "url": "https://graysmithproperties.com",
+  "image": "https://graysmithproperties.com/images/rachael-headshot.jpg",
+  "telephone": "+1-432-413-6370",
+  "email": "rachael@graysmithproperties.com",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Compass"
+  },
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Gray Realty Group"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2595 Dallas Pkwy Suite 300",
+    "addressLocality": "Frisco",
+    "addressRegion": "TX",
+    "postalCode": "75034",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Lakewood, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Lake Highlands, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Little Forest Hills, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Casa Linda, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "White Rock, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Old East Dallas, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Lower Greenville, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "North Dallas, Dallas, TX"
+    },
+    {
+      "@type": "City",
+      "name": "Dallas, TX"
+    },
+    {
+      "@type": "City",
+      "name": "Richardson, TX"
+    },
+    {
+      "@type": "City",
+      "name": "Plano, TX"
+    }
+  ],
+  "knowsAbout": [
+    "Buying and selling homes in Dallas",
+    "Selling and buying at the same time",
+    "Renovate or move-in ready decisions",
+    "Home equity",
+    "Real estate investing",
+    "House hacking",
+    "Fix and flip"
+  ],
+  "sameAs": [
+    "https://www.compass.com/agents/rachael-gray-smith/",
+    "https://www.instagram.com/rachael.graysmith/",
+    "https://graysmithproperties.substack.com",
+    "https://share.google/A9KrBMqLJLTYynrLw",
+    "https://www.zillow.com/profile/graysmithproperties",
+    "https://www.har.com/rachael-gray-smith/agent_NTREIS-0657985",
+    "https://www.realtor.com/realestateagents/5c304bf67706dc001a6bafc7"
+  ]
+}
+  </script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -606,16 +922,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ════════════════ NAVIGATION ════════════════ -->
 <nav class="nav">
-  <a href="/" class="nav-logo">
-    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
-      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
-      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
-    </svg>
-    <span class="nav-logo-text">
-      <span class="nav-logo-name">Graysmith</span>
-      <span class="nav-logo-sub">Properties</span>
-    </span>
+  <a href="/" class="nav-logo" aria-label="Rachael Gray Smith, Dallas Realtor &mdash; home">
+    <span class="nav-wordmark">Rachael Gray Smith</span>
   </a>
 
   <button class="nav-toggle" aria-label="Menu">
@@ -624,13 +932,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
+    <li><a href="/buy-sell">Buy &amp; Sell</a></li>
+    <li><a href="/investors">Invest</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="/move-up-method">Move Up Method</a></li>
     <li><a href="/education">Education</a></li>
     <li><a href="/resources">Resources</a></li>
-    <li><a href="/investors">Investors</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li><a href="/#join" class="nav-cta">Join the list</a></li>
+    <li><a href="#" class="nav-cta" onclick="openGuideModal(); return false;">Free neighborhood guide</a></li>
   </ul>
 </nav>
 
@@ -639,11 +947,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-inner">
     <div class="hero-content">
       <div class="eyebrow fade-up">About Rachael</div>
-      <h1 class="fade-up stagger-1">I'm not just a Realtor. I'm someone who's <em>actually done this.</em></h1>
-      <p class="hero-sub fade-up stagger-2">11 years in Dallas real estate. A flip, a duplex, a wholesale deal, and a move-up purchase of my own. I know this stuff because I've lived it, and I built the Move Up Method because nobody handed me a playbook when I needed one.</p>
+      <h1 class="fade-up stagger-1">I'm not from Dallas. I just <em>know it like I am.</em></h1>
+      <div class="hero-sub fade-up stagger-2">
+        <p>I'm Rachael Gray Smith, a Dallas Realtor and Broker Associate with Compass, licensed in Texas since 2015.</p>
+        <p>I came to Dallas from West Texas almost 20 years ago without a roadmap. My first five years in real estate were spent in apartment locating, and that job had me living in just about every neighborhood in this city. You learn how a street feels on a Tuesday night that way, which tells you more than any listing photo.</p>
+        <p>Home for me now is Lake Highlands, in a house I chose for the schools, the neighborhood's trajectory and the next move I've already mapped out.</p>
+      </div>
     </div>
     <div class="hero-photo fade-up stagger-3">
-      <img src="/images/rachael-headshot.jpg" alt="Rachael Gray Smith, Dallas Realtor and creator of the Move Up Method" width="600" height="800">
+      <img src="/images/rachael-headshot.jpg" alt="Rachael Gray Smith, Dallas Realtor" width="600" height="800">
     </div>
   </div>
 </section>
@@ -653,15 +965,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="stats-inner">
     <div class="stat-item fade-up">
       <div class="stat-num">11</div>
-      <div class="stat-label">Years in Dallas<br>real estate</div>
+      <div class="stat-label">Years in<br>real estate</div>
     </div>
     <div class="stat-item fade-up stagger-1">
       <div class="stat-num">3</div>
-      <div class="stat-label">Personal investment<br>strategies lived and learned</div>
+      <div class="stat-label">Properties bought, renovated<br>or held myself</div>
     </div>
     <div class="stat-item fade-up stagger-2">
-      <div class="stat-num">1</div>
-      <div class="stat-label">Method built<br>from all of it</div>
+      <div class="stat-num">5.0</div>
+      <div class="stat-label">Google<br>rating</div>
     </div>
   </div>
 </section>
@@ -672,11 +984,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="content-two-col">
       <div class="content-label fade-up">
         <div class="eyebrow">Experience</div>
-        <h2>The experience behind the method.</h2>
+        <h2>The experience behind the advice.</h2>
       </div>
       <div class="content-body fade-up stagger-1">
-        <p>I've spent 11 years in Dallas real estate, but what sets me apart isn't the years, it's what I did with them. I didn't just sell homes for other people. I bought a house and DIY-flipped it while living in it (not recommended for the faint of heart, highly recommended for your education). I bought a duplex, house-hacked it, and still own it as a rental today. I found a wholesale deal, flipped it with a GC, and sold it.</p>
-        <p>And right now, I'm living in Lake Highlands in a home I chose strategically, for the schools, the neighborhood trajectory, and yes, the move-up potential I've already mapped out.</p>
+        <p>After my apartment locating years, I went to work with investors and started buying my own properties. Each one taught me how a house earns its money back, and how it can lose it.</p>
+        <ul class="deal-list">
+          <li><strong>The live-in flip.</strong> I bought a house, renovated it while living in it and sold it. Every decision was mine, and so was every surprise.</li>
+          <li><strong>The duplex.</strong> I house-hacked it and still own it as a rental today.</li>
+          <li><strong>The wholesale deal.</strong> I sourced it, renovated it with a GC and sold it for a profit.</li>
+        </ul>
+        <p>Today both sides of that experience go into every move. You get help finding the neighborhood that fits your life, and I keep an eye on your investment whether you ask me to or not. I genuinely can't help it.</p>
       </div>
     </div>
   </div>
@@ -687,12 +1004,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="content-inner">
     <div class="content-two-col">
       <div class="content-label fade-up">
-        <div class="eyebrow">Origin</div>
-        <h2>Why the Move Up Method exists.</h2>
+        <div class="eyebrow">Approach</div>
+        <h2>Why this approach works.</h2>
       </div>
       <div class="content-body fade-up stagger-1">
-        <p>The thing I kept seeing, over and over, with client after client, was that smart, capable people had no idea they were already positioned to make a move. They didn't know what equity was. They didn't know they were sitting on it. And they definitely didn't know they could use it to leapfrog into a completely different financial position without starting over from scratch.</p>
-        <p>So I built the Move Up Method. Education before the transaction.</p>
+        <ol class="approach-list">
+          <li>
+            <h3>The neighborhood comes first.</h3>
+            <p>Schools, commute, lot size and neighbors you'd actually invite over. I settle the neighborhood before you fall for a kitchen, because a renovation can fix almost anything except location.</p>
+          </li>
+          <li>
+            <h3>Every house gets the numbers.</h3>
+            <p>I check what the best homes on the street sell for, what buyers in that pocket pay for, and what's structural versus cosmetic. You'll know whether to renovate or buy finished before you make an offer.</p>
+          </li>
+          <li>
+            <h3>Every move is planned around the next one.</h3>
+            <p>My goal is for you to love the home you buy. When the day comes to sell it, it should sell with ease.</p>
+          </li>
+        </ol>
+        <a href="https://rachaelgraysmith.myflodesk.com/letsconnect" target="_blank" rel="noopener" class="btn-primary approach-cta">
+          Let's connect
+          <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -706,7 +1039,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>When I'm not nerding out on real estate strategy.</h2>
       <div class="content-body">
         <p>I majored in music in college and still play piano and guitar. Teaching is basically hardwired into me. I come from a long line of educators, so breaking things down until they actually make sense is in my DNA, just not the classroom kind.</p>
-        <p>I live in Lake Highlands with my family, and yes, I already have opinions about which street I want to move up to next.</p>
+        <p>I live in Lake Highlands with my family, and yes, I already have opinions about which street I want to land on next.</p>
       </div>
     </div>
     <div class="fun-facts fade-up stagger-1">
@@ -735,14 +1068,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="bottom-cta-inner">
     <div class="eyebrow fade-up">Next step</div>
     <h2 class="fade-up stagger-1">Want to learn before you leap?</h2>
-    <p class="fade-up stagger-2">Browse the education hub for honest, useful content about move-up buying, building wealth through real estate, and navigating the Dallas market. Or book a call and let's talk through where you stand.</p>
+    <p class="fade-up stagger-2">Browse the education hub for honest, useful writing about buying, selling and investing in Dallas real estate. Or fill out my quick intake form and we'll talk through where you stand.</p>
     <div class="bottom-cta-buttons fade-up stagger-3">
       <a href="/education" class="btn-primary">
         Browse the education hub
         <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="/contact" class="btn-secondary">
-        Book a free strategy call
+      <a href="https://rachaelgraysmith.myflodesk.com/letsconnect" target="_blank" rel="noopener" class="btn-secondary">
+        Let's connect
       </a>
     </div>
   </div>
@@ -752,21 +1085,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
-        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
-          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
-          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
-          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
-        </svg>
+      <a href="/" class="footer-logo" aria-label="Gray Realty Group at Compass">
+        <img src="/images/gray-realty-group.png" alt="Gray Realty Group" width="2000" height="924">
       </a>
-      <p>Dallas Realtor helping millennials build real estate wealth: one move up at a time.</p>
+      <span class="footer-logo-sub">at Compass</span>
+      <p>Helping Dallas homeowners and investors build something that lasts. Serving Dallas, North Dallas, Richardson, and Plano.</p>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
       <ul>
         <li><a href="/about">About</a></li>
-        <li><a href="/move-up-method">Move Up Method</a></li>
-        <li><a href="/investors">Investors</a></li>
+        <li><a href="/buy-sell">Buy &amp; Sell</a></li>
+        <li><a href="/investors">Invest</a></li>
         <li><a href="/education">Education</a></li>
         <li><a href="/resources">Resources</a></li>
       </ul>
@@ -783,16 +1113,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h4>Resources</h4>
       <ul>
         <li><a href="/resources">Free Guides</a></li>
-        <li><a href="/quiz">Move Up Quiz</a></li>
         <li><a href="/neighborhood-quiz">Neighborhood Quiz</a></li>
-        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="https://rachaelgraysmith.myflodesk.com/letsconnect" target="_blank" rel="noopener">Let's Connect</a></li>
         <li><a href="/privacy">Privacy Policy</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-legal">
-      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2026 Graysmith Properties
+      <p class="footer-contact">Rachael Gray Smith, REALTOR&reg; and Broker Associate &middot; Compass &middot; 432.413.6370 &middot; rachael@graysmithproperties.com</p>
+      <p>Texas Real Estate License #0657985 &middot; Compass RE Texas LLC &middot; 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 &middot; Equal Housing Opportunity &middot; &copy; 2026 Graysmith Properties</p>
     </div>
     <div class="footer-eho">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
@@ -828,5 +1158,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 
+
+<script>
+  // Shared guide-modal controls. Used by the nav CTA and every "Send me the guide" button.
+  function openGuideModal() {
+    var m = document.getElementById('flodesk-modal');
+    if (!m) return;
+    m.style.setProperty('display', 'flex', 'important');
+    m.style.setProperty('z-index', '9999', 'important');
+  }
+  function closeGuideModal() {
+    var m = document.getElementById('flodesk-modal');
+    if (m) m.style.display = 'none';
+  }
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'flodesk-modal') closeGuideModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeGuideModal();
+  });
+</script>
+
+  <!-- ════════════════ FLODESK GUIDE MODAL ════════════════ -->
+  <div id="flodesk-modal" style="display:none; position:fixed; inset:0; background:rgba(44,40,37,0.6); backdrop-filter:blur(4px); z-index:200; align-items:center; justify-content:center; padding:2rem; overflow-y:auto;">
+    <div style="background:#FFFFFF; border-radius:10px; padding:0; max-width:860px; width:100%; position:relative; max-height:calc(100vh - 4rem); overflow:auto;">
+      <button onclick="closeGuideModal();" aria-label="Close" style="position:absolute; top:0.75rem; right:0.75rem; z-index:2; background:rgba(255,255,255,0.9); border:none; border-radius:50%; width:2rem; height:2rem; cursor:pointer; font-size:1rem; color:#2C2825; opacity:0.75; line-height:1;">&#x2715;</button>
+      <div id="fd-form-6a7c702cc4f67c90c422ee99"></div>
+      <script>
+        window.fd('form', {
+          formId: '6a7c702cc4f67c90c422ee99',
+          containerEl: '#fd-form-6a7c702cc4f67c90c422ee99'
+        });
+      </script>
+    </div>
+  </div>
 </body>
 </html>

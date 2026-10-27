@@ -1,0 +1,13 @@
+{
+  "name": "graysmith-properties",
+  "version": "1.3.0",
+  "private": true,
+  "description": "Static site for Rachael Gray Smith, Dallas Realtor with Compass.",
+  "type": "module",
+  "scripts": {
+    "articles": "node scripts/build-articles.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

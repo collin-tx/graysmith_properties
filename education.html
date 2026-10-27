@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="canonical" href="https://graysmithproperties.com/education">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +14,32 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-5WD8Z2S2');</script>
   <!-- End Google Tag Manager -->
-  <title>Dallas Real Estate Education | Move-Up Buying Guide | Graysmith Properties</title>
-  <meta name="description" content="Honest real estate content for Dallas millennials. Move-up buying, equity explained, building wealth through property — written by Rachael Gray Smith.">
+  <title>Dallas Real Estate Articles | Rachael Gray Smith</title>
+  <meta name="description" content="Honest articles on buying, selling and investing in Dallas real estate from Dallas Realtor Rachael Gray Smith.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <script>
+    (function(w, d, t, h, s, n) {
+      w.FlodeskObject = n;
+      var fn = function() {
+        (w[n].q = w[n].q || []).push(arguments);
+      };
+      w[n] = w[n] || fn;
+      var f = d.getElementsByTagName(t)[0];
+      var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+      var sm = d.createElement(t);
+      sm.async = true;
+      sm.type = 'module';
+      sm.src = h + s + '.mjs' + v;
+      f.parentNode.insertBefore(sm, f);
+      var sn = d.createElement(t);
+      sn.async = true;
+      sn.noModule = true;
+      sn.src = h + s + '.js' + v;
+      f.parentNode.insertBefore(sn, f);
+    })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -72,27 +95,9 @@
       text-decoration: none;
     }
 
-    .nav-logo svg { height: 42px; width: 42px; }
 
-    .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
 
-    .nav-logo-name {
-      font-family: var(--heading);
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--linen);
-      letter-spacing: 0.08em;
-    }
 
-    .nav-logo-sub {
-      font-family: var(--body);
-      font-size: 0.55rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--avocado);
-      margin-top: 3px;
-    }
 
     .nav-links {
       display: flex;
@@ -483,6 +488,175 @@
       background: var(--linen);
     }
 
+    .bottom-cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .bottom-cta .btn-secondary {
+      color: var(--linen);
+      border-color: rgba(245, 239, 230, 0.35);
+    }
+
+    .bottom-cta .btn-secondary:hover {
+      background: var(--linen);
+      color: var(--avocado);
+      border-color: var(--linen);
+    }
+
+    /* ── BRAND LOCKUPS (nav wordmark + footer GRG logo) ── */
+    .nav-wordmark {
+      font-family: var(--heading);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--linen);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-cta { white-space: nowrap; }
+
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .nav-cta { padding: 0.55rem 0.9rem; }
+    }
+
+    .footer-logo {
+      display: inline-block;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .footer-logo img {
+      width: 190px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
+    }
+
+    .footer-logo-sub {
+      display: block;
+      margin-top: 0.6rem;
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .footer-contact { margin-bottom: 0.45rem; }
+
+    /* ── FLODESK OVERRIDES ── */
+    #flodesk-modal .fd-form-container,
+    #flodesk-modal .fd-form {
+      background: var(--linen) !important;
+      border-radius: 8px !important;
+      font-family: var(--body) !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    #flodesk-modal .fd-form-title,
+    #flodesk-modal h1,
+    #flodesk-modal h2,
+    #flodesk-modal h3 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+      font-size: 1.5rem !important;
+      color: #2C2825 !important;
+      line-height: 1.3 !important;
+    }
+
+    #flodesk-modal input[type="text"],
+    #flodesk-modal input[type="email"] {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      color: #2C2825 !important;
+      background: #FFFFFF !important;
+      border: 1.5px solid #D4C4B0 !important;
+      border-radius: 4px !important;
+      padding: 0.85rem 1.15rem !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    #flodesk-modal input[type="text"]:focus,
+    #flodesk-modal input[type="email"]:focus {
+      border-color: #C4603A !important;
+    }
+
+    /* Flodesk ships an obfuscated placeholder (e.g. placeholder="RFU1TUNwb3ND") on the
+       real input and paints its own visible label over it. Showing the native placeholder
+       doubles the text, so hide it — the Flodesk label is the one meant to be read. */
+    #flodesk-modal input::placeholder {
+      color: transparent !important;
+      opacity: 0 !important;
+    }
+
+    #flodesk-modal input::-webkit-input-placeholder {
+      color: transparent !important;
+      opacity: 0 !important;
+    }
+
+    #flodesk-modal button[type="submit"],
+    #flodesk-modal .fd-btn {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.9rem !important;
+      font-weight: 500 !important;
+      background: #C4603A !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 4px !important;
+      padding: 0.9rem 2rem !important;
+      margin-top: 1rem !important;
+      cursor: pointer !important;
+      letter-spacing: 0.02em !important;
+      transition: background 0.25s !important;
+      text-transform: none !important;
+    }
+
+    #flodesk-modal button[type="submit"]:hover,
+    #flodesk-modal .fd-btn:hover {
+      background: #b35530 !important;
+    }
+
+    #flodesk-modal .fd-footer,
+    #flodesk-modal .fd-form-footer {
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 0.75rem !important;
+      color: #2C2825 !important;
+      opacity: 0.4 !important;
+    }
+
+    #flodesk-modal .fd-success-headline,
+    #flodesk-modal .fd-success-message {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      color: #2C2825 !important;
+    }
+
+    #flodesk-modal .fd-form-title *,
+    #flodesk-modal h1 *,
+    #flodesk-modal h2 *,
+    #flodesk-modal h3 *,
+    #flodesk-modal [class*="title"] * {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-weight: 400 !important;
+    }
+
+    #flodesk-modal strong,
+    #flodesk-modal b {
+      font-weight: 400 !important;
+    }
+
+
+
+
+
     /* ── FOOTER ── */
     .footer {
       background: var(--espresso);
@@ -605,6 +779,99 @@
       .footer-inner { grid-template-columns: 1fr; }
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Rachael Gray Smith",
+  "jobTitle": "REALTOR® and Broker Associate",
+  "description": "Dallas Realtor with Compass since 2015 helping homeowners buy and sell in Lakewood, Lake Highlands and East Dallas, plus North Dallas, Richardson and Plano. Also works with first-time real estate investors.",
+  "url": "https://graysmithproperties.com",
+  "image": "https://graysmithproperties.com/images/rachael-headshot.jpg",
+  "telephone": "+1-432-413-6370",
+  "email": "rachael@graysmithproperties.com",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Compass"
+  },
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Gray Realty Group"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2595 Dallas Pkwy Suite 300",
+    "addressLocality": "Frisco",
+    "addressRegion": "TX",
+    "postalCode": "75034",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Lakewood, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Lake Highlands, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Little Forest Hills, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Casa Linda, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "White Rock, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Old East Dallas, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "Lower Greenville, Dallas, TX"
+    },
+    {
+      "@type": "Place",
+      "name": "North Dallas, Dallas, TX"
+    },
+    {
+      "@type": "City",
+      "name": "Dallas, TX"
+    },
+    {
+      "@type": "City",
+      "name": "Richardson, TX"
+    },
+    {
+      "@type": "City",
+      "name": "Plano, TX"
+    }
+  ],
+  "knowsAbout": [
+    "Buying and selling homes in Dallas",
+    "Selling and buying at the same time",
+    "Renovate or move-in ready decisions",
+    "Home equity",
+    "Real estate investing",
+    "House hacking",
+    "Fix and flip"
+  ],
+  "sameAs": [
+    "https://www.compass.com/agents/rachael-gray-smith/",
+    "https://www.instagram.com/rachael.graysmith/",
+    "https://graysmithproperties.substack.com",
+    "https://share.google/A9KrBMqLJLTYynrLw",
+    "https://www.zillow.com/profile/graysmithproperties",
+    "https://www.har.com/rachael-gray-smith/agent_NTREIS-0657985",
+    "https://www.realtor.com/realestateagents/5c304bf67706dc001a6bafc7"
+  ]
+}
+  </script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -615,16 +882,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ════════════════ NAVIGATION ════════════════ -->
 <nav class="nav">
-  <a href="/" class="nav-logo">
-    <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="21" cy="21" r="20" fill="#C4603A"/>
-      <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
-      <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
-    </svg>
-    <span class="nav-logo-text">
-      <span class="nav-logo-name">Graysmith</span>
-      <span class="nav-logo-sub">Properties</span>
-    </span>
+  <a href="/" class="nav-logo" aria-label="Rachael Gray Smith, Dallas Realtor &mdash; home">
+    <span class="nav-wordmark">Rachael Gray Smith</span>
   </a>
 
   <button class="nav-toggle" aria-label="Menu">
@@ -633,13 +892,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
+    <li><a href="/buy-sell">Buy &amp; Sell</a></li>
+    <li><a href="/investors">Invest</a></li>
     <li><a href="/about">About</a></li>
-    <li><a href="/move-up-method">Move Up Method</a></li>
     <li><a href="/education">Education</a></li>
     <li><a href="/resources">Resources</a></li>
-    <li><a href="/investors">Investors</a></li>
     <li><a href="/contact">Contact</a></li>
-    <li><a href="/#join" class="nav-cta">Join the list</a></li>
+    <li><a href="#" class="nav-cta" onclick="openGuideModal(); return false;">Free neighborhood guide</a></li>
   </ul>
 </nav>
 
@@ -648,7 +907,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-inner">
     <div class="eyebrow fade-up">The Education Hub</div>
     <h1 class="fade-up stagger-1">Real talk about <em>Dallas real estate.</em></h1>
-    <p class="hero-sub fade-up stagger-2">Honest, useful content about move-up buying, building wealth through real estate, and navigating the Dallas market, written by someone who's done all of it.</p>
+    <p class="hero-sub fade-up stagger-2">Honest, useful writing about buying, selling and investing in Dallas, from someone who's done all three.</p>
     <a href="#subscribe" class="hero-cta-link fade-up stagger-3">
       Subscribe on Substack
       <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -660,7 +919,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="topics">
   <div class="topics-inner fade-up">
     <button class="topic-pill active">All</button>
-    <button class="topic-pill" data-topic="move-up">Move-up buying</button>
+    <button class="topic-pill" data-topic="buying">Buying</button>
     <button class="topic-pill" data-topic="selling">Selling smart</button>
     <button class="topic-pill" data-topic="wealth">Building wealth</button>
     <button class="topic-pill" data-topic="market">Dallas market</button>
@@ -673,10 +932,202 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="articles">
   <div class="articles-inner">
     <div class="articles-grid" id="articles-grid">
-      <!-- Articles loaded dynamically from Substack RSS -->
-      <div class="article-loading fade-up">Loading articles...</div>
+<!-- ARTICLES:START — generated by scripts/build-articles.mjs, do not edit by hand -->
+      <a href="https://graysmithproperties.substack.com/p/it-feels-like-renting-from-the-bank" target="_blank" rel="noopener" class="article-card fade-up " data-topics="buying wealth market">
+        <div class="article-thumb t1">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">June 22, 2026</div>
+          <h3 class="article-title">“It feels like renting from the bank.” You’re not wrong. Here’s what to do about it.</h3>
+          <p class="article-excerpt">The feeling is valid. The strategy that comes next is what separates the people who build wealth from the ones who don’t.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/the-small-stuff-sellers-skip-and" target="_blank" rel="noopener" class="article-card fade-up stagger-1" data-topics="selling">
+        <div class="article-thumb t2">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">June 15, 2026</div>
+          <h3 class="article-title">The small stuff sellers skip. And why it’s costing them.</h3>
+          <p class="article-excerpt">Top dollar is not a passive outcome. It’s a decision you make before you list.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/dallas-prices-softened-heres-whos" target="_blank" rel="noopener" class="article-card fade-up stagger-2" data-topics="market">
+        <div class="article-thumb t3">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">June 10, 2026</div>
+          <h3 class="article-title">Dallas prices softened. Here’s who’s actually losing.</h3>
+          <p class="article-excerpt">It’s not who the headlines are pointing at.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/the-second-you-list-its-not-your" target="_blank" rel="noopener" class="article-card fade-up stagger-3" data-topics="buying selling">
+        <div class="article-thumb t4">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">June 1, 2026</div>
+          <h3 class="article-title">The Second You List, It’s Not Your Home Anymore</h3>
+          <p class="article-excerpt">I was representing a buyer once who wanted to start low on an offer.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/i-showed-7-houses-today-sellers-listen" target="_blank" rel="noopener" class="article-card fade-up " data-topics="buying selling">
+        <div class="article-thumb t1">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">May 25, 2026</div>
+          <h3 class="article-title">I Showed 7 Houses Today. Sellers: Listen Close.</h3>
+          <p class="article-excerpt">I took buyers through seven houses today.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/waiting-for-rates-is-a-strategy-a" target="_blank" rel="noopener" class="article-card fade-up stagger-1" data-topics="market">
+        <div class="article-thumb t2">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">May 18, 2026</div>
+          <h3 class="article-title">Waiting for Rates Is a Strategy. A Bad One.</h3>
+          <p class="article-excerpt">The Market Is a Variable. Your Goals Are the Constant.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/should-you-buy-or-rent-in-dallas" target="_blank" rel="noopener" class="article-card fade-up stagger-2" data-topics="buying market">
+        <div class="article-thumb t3">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">May 4, 2026</div>
+          <h3 class="article-title">Should You Buy or Rent in Dallas? A Guide for People Who Actually Like Where They Live</h3>
+          <p class="article-excerpt">For Dallas renters who love their neighborhood and aren’t sure homeownership is for them.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/the-dallas-neighborhood-guide-nobody" target="_blank" rel="noopener" class="article-card fade-up stagger-3" data-topics="buying market">
+        <div class="article-thumb t4">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">April 17, 2026</div>
+          <h3 class="article-title">The Dallas Neighborhood Guide Nobody Else Will Actually Give You</h3>
+          <p class="article-excerpt">A honest, street-level breakdown of where to buy in DFW right now, and what to watch out for</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/your-house-is-the-cheat-code-are" target="_blank" rel="noopener" class="article-card fade-up " data-topics="wealth">
+        <div class="article-thumb t1">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">April 13, 2026</div>
+          <h3 class="article-title">YOUR HOUSE IS THE CHEAT CODE. ARE YOU USING IT?</h3>
+          <p class="article-excerpt">A manifesto for millennials who are done getting left behind by an economy that was never rooting for them.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/how-to-buy-and-sell-at-the-same-time" target="_blank" rel="noopener" class="article-card fade-up stagger-1" data-topics="buying selling">
+        <div class="article-thumb t2">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">April 1, 2026</div>
+          <h3 class="article-title">HOW TO BUY AND SELL AT THE SAME TIME WITHOUT LOSING YOUR MIND</h3>
+          <p class="article-excerpt">The process can be complicated. The panic is optional. Here's how to tell the difference.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/right-time-to-buy-dallas" target="_blank" rel="noopener" class="article-card fade-up stagger-2" data-topics="buying">
+        <div class="article-thumb t3">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">March 30, 2026</div>
+          <h3 class="article-title">IS THERE A &quot;RIGHT&quot; TIME TO BUY REAL ESTATE?</h3>
+          <p class="article-excerpt">Spoiler: no. But there is a right way to think about it and most buyers have it completely backwards.</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <a href="https://graysmithproperties.substack.com/p/why-start-another-substack" target="_blank" rel="noopener" class="article-card fade-up stagger-3">
+        <div class="article-thumb t4">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="article-content">
+          <div class="article-topic">February 5, 2026</div>
+          <h3 class="article-title">Why start another substack?</h3>
+          <p class="article-excerpt">Because Millennials are getting left behind</p>
+          <span class="article-read">
+            Read on Substack
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+      </a>
+      <!-- ARTICLES:END -->
     </div>
-    <div class="more-coming fade-up" id="substack-link" style="display:none;">
+    <div class="more-coming fade-up" id="substack-link">
       <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener" class="more-coming-link">
         See all articles on Substack
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -690,11 +1141,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="bottom-cta-inner">
     <div class="eyebrow fade-up">Never miss a post</div>
     <h2 class="fade-up stagger-1">Want this in your inbox?</h2>
-    <p class="fade-up stagger-2">Subscribe on Substack and get new articles delivered straight to you, plus real talk about the Dallas market, move-up strategy, and wealth-building through real estate.</p>
-    <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener" class="btn-primary fade-up stagger-3">
-      Subscribe on Substack
-      <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <p class="fade-up stagger-2">Subscribe on Substack for new articles, plus real talk about the Dallas market, neighborhoods and investing.</p>
+    <div class="bottom-cta-buttons fade-up stagger-3">
+      <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener" class="btn-primary">
+        Subscribe on Substack
+        <svg class="btn-arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://rachaelgraysmith.myflodesk.com/letsconnect" target="_blank" rel="noopener" class="btn-secondary">
+        Let's connect
+      </a>
+    </div>
   </div>
 </section>
 
@@ -702,21 +1158,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="/" class="nav-logo" style="margin-bottom: 0.5rem;">
-        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:36px;width:36px;">
-          <circle cx="21" cy="21" r="20" fill="#C4603A"/>
-          <circle cx="21" cy="21" r="18" stroke="#F5EFE6" stroke-width="0.75" fill="none"/>
-          <text x="21" y="24" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="14" font-weight="400" letter-spacing="0.5" fill="#F5EFE6">GSP</text>
-        </svg>
+      <a href="/" class="footer-logo" aria-label="Gray Realty Group at Compass">
+        <img src="/images/gray-realty-group.png" alt="Gray Realty Group" width="2000" height="924">
       </a>
-      <p>Dallas Realtor helping millennials build real estate wealth: one move up at a time.</p>
+      <span class="footer-logo-sub">at Compass</span>
+      <p>Helping Dallas homeowners and investors build something that lasts. Serving Dallas, North Dallas, Richardson, and Plano.</p>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
       <ul>
         <li><a href="/about">About</a></li>
-        <li><a href="/move-up-method">Move Up Method</a></li>
-        <li><a href="/investors">Investors</a></li>
+        <li><a href="/buy-sell">Buy &amp; Sell</a></li>
+        <li><a href="/investors">Invest</a></li>
         <li><a href="/education">Education</a></li>
         <li><a href="/resources">Resources</a></li>
       </ul>
@@ -733,16 +1186,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h4>Resources</h4>
       <ul>
         <li><a href="/resources">Free Guides</a></li>
-        <li><a href="/quiz">Move Up Quiz</a></li>
         <li><a href="/neighborhood-quiz">Neighborhood Quiz</a></li>
-        <li><a href="/contact">Book a Call</a></li>
+        <li><a href="https://rachaelgraysmith.myflodesk.com/letsconnect" target="_blank" rel="noopener">Let's Connect</a></li>
         <li><a href="/privacy">Privacy Policy</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-legal">
-      Rachael Gray Smith · Texas Real Estate License #0657985 · Compass RE Texas LLC · 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 · Equal Housing Opportunity · © 2026 Graysmith Properties
+      <p class="footer-contact">Rachael Gray Smith, REALTOR&reg; and Broker Associate &middot; Compass &middot; 432.413.6370 &middot; rachael@graysmithproperties.com</p>
+      <p>Texas Real Estate License #0657985 &middot; Compass RE Texas LLC &middot; 2595 Dallas Pkwy Suite #300, Frisco, TX 75034 &middot; Equal Housing Opportunity &middot; &copy; 2026 Graysmith Properties</p>
     </div>
     <div class="footer-eho">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V10l7-7 7 7v11M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
@@ -802,80 +1255,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   });
 
-  // Substack RSS feed
-  const THUMB_COLORS = ['t1','t2','t3','t4'];
-  const STAGGER = ['','stagger-1','stagger-2','stagger-3'];
-
-  async function loadSubstackArticles() {
-    const grid = document.getElementById('articles-grid');
-    const substackLink = document.getElementById('substack-link');
-    const RSS_URL = 'https://graysmithproperties.substack.com/feed';
-    const PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS_URL);
-
-    try {
-      const res = await fetch(PROXY);
-      const data = await res.json();
-
-      if (!data.items || data.items.length === 0) {
-        grid.innerHTML = '<div class="article-error">No articles found. <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener">View on Substack</a></div>';
-        substackLink.style.display = 'block';
-        return;
-      }
-
-      grid.innerHTML = '';
-
-      data.items.forEach(function(item, i) {
-        var tmp = document.createElement('div');
-        tmp.innerHTML = item.description || '';
-        var excerpt = tmp.textContent.trim().slice(0, 160);
-        if (tmp.textContent.trim().length > 160) excerpt += '...';
-
-        var date = '';
-        if (item.pubDate) {
-          date = new Date(item.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-        }
-
-        var colorClass = THUMB_COLORS[i % THUMB_COLORS.length];
-        var staggerClass = STAGGER[i % STAGGER.length];
-
-        var card = document.createElement('a');
-        card.href = item.link;
-        card.target = '_blank';
-        card.rel = 'noopener';
-        card.className = 'article-card fade-up ' + staggerClass;
-        card.innerHTML =
-          '<div class="article-thumb ' + colorClass + '">' +
-            '<svg width="60" height="60" viewBox="0 0 60 60" fill="none">' +
-              '<path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>' +
-            '</svg>' +
-          '</div>' +
-          '<div class="article-content">' +
-            (date ? '<div class="article-topic">' + date + '</div>' : '') +
-            '<h3 class="article-title">' + item.title + '</h3>' +
-            '<p class="article-excerpt">' + excerpt + '</p>' +
-            '<span class="article-read">' +
-              'Read on Substack ' +
-              '<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-            '</span>' +
-          '</div>';
-
-        grid.appendChild(card);
-      });
-
-      substackLink.style.display = 'block';
-
-      // Observe newly added cards
-      grid.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
-
-    } catch (err) {
-      grid.innerHTML = '<div class="article-error">Couldn\'t load articles right now. <a href="https://graysmithproperties.substack.com" target="_blank" rel="noopener">Read on Substack</a></div>';
-      substackLink.style.display = 'block';
-    }
-  }
-
-  loadSubstackArticles();
-
 </script>
 
+
+<script>
+  // Shared guide-modal controls. Used by the nav CTA and every "Send me the guide" button.
+  function openGuideModal() {
+    var m = document.getElementById('flodesk-modal');
+    if (!m) return;
+    m.style.setProperty('display', 'flex', 'important');
+    m.style.setProperty('z-index', '9999', 'important');
+  }
+  function closeGuideModal() {
+    var m = document.getElementById('flodesk-modal');
+    if (m) m.style.display = 'none';
+  }
+  document.addEventListener('click', function(e) {
+    if (e.target && e.target.id === 'flodesk-modal') closeGuideModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeGuideModal();
+  });
+</script>
+
+  <!-- ════════════════ FLODESK GUIDE MODAL ════════════════ -->
+  <div id="flodesk-modal" style="display:none; position:fixed; inset:0; background:rgba(44,40,37,0.6); backdrop-filter:blur(4px); z-index:200; align-items:center; justify-content:center; padding:2rem; overflow-y:auto;">
+    <div style="background:#FFFFFF; border-radius:10px; padding:0; max-width:860px; width:100%; position:relative; max-height:calc(100vh - 4rem); overflow:auto;">
+      <button onclick="closeGuideModal();" aria-label="Close" style="position:absolute; top:0.75rem; right:0.75rem; z-index:2; background:rgba(255,255,255,0.9); border:none; border-radius:50%; width:2rem; height:2rem; cursor:pointer; font-size:1rem; color:#2C2825; opacity:0.75; line-height:1;">&#x2715;</button>
+      <div id="fd-form-6a7c702cc4f67c90c422ee99"></div>
+      <script>
+        window.fd('form', {
+          formId: '6a7c702cc4f67c90c422ee99',
+          containerEl: '#fd-form-6a7c702cc4f67c90c422ee99'
+        });
+      </script>
+    </div>
+  </div>
 </body>
 </html>
