@@ -7,8 +7,9 @@
  * "Loading articles...". Crawlers also skip content that arrives via JavaScript,
  * so the cards are baked into the page instead.
  *
- * .github/workflows/articles.yml runs this daily and commits any change,
- * which redeploys the site. Run `npm run articles` locally to pull a post in sooner.
+ * A daily launchd job on the maintainer's Mac runs this and pushes any change,
+ * which redeploys the site (Substack 403s GitHub Actions runners). Run
+ * `npm run articles` locally to pull a post in sooner.
  */
 
 import { readFile, writeFile } from 'node:fs/promises';
