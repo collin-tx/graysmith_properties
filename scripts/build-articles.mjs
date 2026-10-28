@@ -7,7 +7,8 @@
  * "Loading articles...". Crawlers also skip content that arrives via JavaScript,
  * so the cards are baked into the page instead.
  *
- * Run `npm run articles` after publishing a new post, then commit education.html.
+ * .github/workflows/articles.yml runs this daily and commits any change,
+ * which redeploys the site. Run `npm run articles` locally to pull a post in sooner.
  */
 
 import { readFile, writeFile } from 'node:fs/promises';
