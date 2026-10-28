@@ -84,7 +84,22 @@ function formatDate(pubDate) {
   });
 }
 
+/**
+ * Cover image for a post. Posts without one get the publication's own image as
+ * their enclosure, which would put the same logo on every card, so skip that.
+ * Substack's CDN resizes on request; 800px wide covers the card at 2x.
+ */
+function coverFor(raw, channelImage) {
+  const m = raw.match(/<enclosure[^>]*\burl="([^"]+)"[^>]*\btype="image\//);
+  if (!m) return '';
+  const url = decodeEntities(m[1]);
+  if (url === channelImage) return '';
+  const sized = url.includes(',w_') ? url : url.replace(/(\/image\/fetch\/[^/,]+),/, '$1,w_800,c_limit,');
+  return escapeHtml(sized);
+}
+
 function parseFeed(xml) {
+  const channelImage = decodeEntities(textOf(textOf(xml, 'image'), 'url'));
   const items = xml.match(/<item>[\s\S]*?<\/item>/g) || [];
   return items.slice(0, MAX_ARTICLES).map((raw) => {
     const description = textOf(raw, 'description');
@@ -95,6 +110,7 @@ function parseFeed(xml) {
       link: textOf(raw, 'link'),
       date: formatDate(textOf(raw, 'pubDate')),
       excerpt,
+      image: coverFor(raw, channelImage),
     };
   });
 }
@@ -106,7 +122,7 @@ function renderCard(item, i) {
           <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
             <path d="M15 20h30M15 30h30M15 40h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
           </svg>
-        </div>
+${item.image ? `          <img src="${item.image}" alt="" loading="lazy" decoding="async">\n` : ''}        </div>
         <div class="article-content">
 ${item.date ? `          <div class="article-topic">${item.date}</div>\n` : ''}          <h3 class="article-title">${item.title}</h3>
           <p class="article-excerpt">${item.excerpt}</p>
