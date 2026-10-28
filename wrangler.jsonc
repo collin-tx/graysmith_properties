@@ -1,0 +1,8 @@
+{
+  "name": "graysmith-properties",
+  "compatibility_date": "2026-10-23",
+  "assets": {
+    "directory": ".",
+    "html_handling": "auto-trailing-slash"
+  }
+}
