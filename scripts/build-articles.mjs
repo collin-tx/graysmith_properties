@@ -7,7 +7,7 @@
  * "Loading articles...". Crawlers also skip content that arrives via JavaScript,
  * so the cards are baked into the page instead.
  *
- * .github/workflows/articles.yml runs this every two hours and commits any change,
+ * .github/workflows/articles.yml runs this daily and commits any change,
  * which redeploys the site. Run `npm run articles` locally to pull a post in sooner.
  */
 
